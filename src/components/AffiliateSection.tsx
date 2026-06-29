@@ -9,7 +9,6 @@ const services = [
     rank: 1,
     name: "競馬予想サービスA",
     genre: "競馬",
-    reward: "10,000円",
     feature: "的中率No.1",
     color: "from-yellow-600 to-amber-500",
     badge: "🏆 圧倒的人気",
@@ -18,7 +17,6 @@ const services = [
     rank: 2,
     name: "競艇予想サービスB",
     genre: "競艇",
-    reward: "8,000円",
     feature: "無料予想あり",
     color: "from-blue-600 to-cyan-500",
     badge: "🆓 無料お試し",
@@ -27,7 +25,6 @@ const services = [
     rank: 3,
     name: "競輪予想サービスC",
     genre: "競輪",
-    reward: "5,000円",
     feature: "初心者向け解説",
     color: "from-emerald-600 to-green-500",
     badge: "👶 初心者向け",
@@ -73,10 +70,6 @@ export default function AffiliateSection({ genre }: AffiliateSectionProps) {
                     </Badge>
                   </div>
                   <p className="text-gray-400 text-sm">{service.feature}</p>
-                </div>
-                <div className="text-right shrink-0">
-                  <div className="text-[#d4af37] font-bold text-sm">報酬</div>
-                  <div className="text-white font-black">{service.reward}</div>
                 </div>
                 <a
                   href="#"
