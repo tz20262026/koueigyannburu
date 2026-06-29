@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import AffiliateSection from "@/components/AffiliateSection";
+import RelatedArticles from "@/components/RelatedArticles";
+import GenreQA from "@/components/GenreQA";
+import KyoteiClient from "./KyoteiClient";
 
 export const metadata: Metadata = {
   title: "競艇（ボートレース）予想・データ分析",
@@ -10,25 +13,13 @@ export const metadata: Metadata = {
   keywords: ["競艇予想", "ボートレース", "競艇攻略", "1コース", "水面条件", "競艇データ"],
 };
 
-const stadiums = [
-  { name: "桐生", region: "群馬", feature: "淡水・狭い", course1: "55%", note: "周年SG常連" },
-  { name: "戸田", region: "埼玉", feature: "狭水面・荒れやすい", course1: "48%", note: "インが強い" },
-  { name: "江戸川", region: "東京", feature: "潮の満ち引き", course1: "42%", note: "最難関水面" },
-  { name: "平和島", region: "東京", feature: "海水・荒れやすい", course1: "50%", note: "バック側強い" },
-  { name: "多摩川", region: "東京", feature: "淡水・静水面", course1: "58%", note: "インが絶対的" },
-  { name: "浜名湖", region: "静岡", feature: "潮の影響あり", course1: "53%", note: "オールスター開催" },
-  { name: "蒲郡", region: "愛知", feature: "淡水・穏やか", course1: "57%", note: "グランプリ開催" },
-  { name: "常滑", region: "愛知", feature: "海水・静か", course1: "56%", note: "ダービー常連" },
-  { name: "津", region: "三重", feature: "海水・荒れることも", course1: "52%", note: "メモリアル開催" },
-  { name: "大村", region: "長崎", feature: "淡水・インの聖地", course1: "66%", note: "1コース最強場" },
-];
-
 const players = [
   { rank: 1, name: "峰竜太", class: "A1", pref: "佐賀", winRate: "35.2%", no: "3415" },
   { rank: 2, name: "白井英治", class: "A1", pref: "山口", winRate: "31.8%", no: "3492" },
   { rank: 3, name: "毒島誠", class: "A1", pref: "群馬", winRate: "30.4%", no: "4238" },
   { rank: 4, name: "辻栄蔵", class: "A1", pref: "広島", winRate: "29.7%", no: "3562" },
   { rank: 5, name: "平本真之", class: "A1", pref: "愛知", winRate: "28.5%", no: "4349" },
+  { rank: 6, name: "桐生順平", class: "A1", pref: "埼玉", winRate: "27.9%", no: "4336" },
 ];
 
 const tips = [
@@ -36,14 +27,82 @@ const tips = [
   { icon: "🌊", title: "水面・天候確認", desc: "海水面と淡水、追い風・向かい風でレース傾向が大きく変わる" },
   { icon: "⚙️", title: "モーター成績", desc: "モーターの2連率が高いと成績に直結。ボートの足色を要チェック" },
   { icon: "🏅", title: "選手クラス", desc: "A1・A2・B1・B2の4クラス。A1選手が出走するSGレースは格が違う" },
+  { icon: "🎲", title: "展示タイム", desc: "本番直前の展示走行のタイムで当日の機力・選手の仕上がりを確認" },
+  { icon: "📊", title: "コース別成績", desc: "選手によって得意・不得意コースが明確。過去のコース別成績は必須チェック" },
 ];
 
-const grades = [
-  { grade: "SG", name: "SGグランプリ", prize: "1億800万円", color: "bg-amber-500/20 text-amber-300 border-amber-500/30" },
-  { grade: "G1", name: "全国選手権", prize: "2400万円", color: "bg-red-500/20 text-red-300 border-red-500/30" },
-  { grade: "G2", name: "レディースCC", prize: "1400万円", color: "bg-pink-500/20 text-pink-300 border-pink-500/30" },
-  { grade: "G3", name: "プレミアムGP", prize: "1000万円", color: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-  { grade: "一般", name: "一般・企業杯", prize: "~500万円", color: "bg-gray-500/20 text-gray-300 border-gray-500/30" },
+const relatedArticles = [
+  {
+    href: "/kyotei",
+    title: "競艇（ボートレース）完全入門ガイド",
+    desc: "競艇の基本ルール・舟券の種類・買い方まで初心者向けに徹底解説",
+    tag: "初心者",
+    tagColor: "bg-cyan-500/20 text-cyan-300",
+    time: "10分で読める",
+  },
+  {
+    href: "/kyotei",
+    title: "1コース圧倒的有利の理由とは？",
+    desc: "スタートの有利不利・コース取りの仕組みを図解で完全解説",
+    tag: "基礎知識",
+    tagColor: "bg-blue-500/20 text-blue-300",
+    time: "6分で読める",
+  },
+  {
+    href: "/kyotei",
+    title: "SGレースの見どころ・攻略法",
+    desc: "競艇最高峰のSGレースはなぜ荒れる？A1選手の出走傾向を分析",
+    tag: "攻略",
+    tagColor: "bg-red-500/20 text-red-300",
+    time: "7分で読める",
+  },
+  {
+    href: "/kyotei",
+    title: "大村ボートが1コース勝率No.1の理由",
+    desc: "全国66%を誇る大村の水面特性と予想への活かし方",
+    tag: "データ",
+    tagColor: "bg-amber-500/20 text-amber-300",
+    time: "5分で読める",
+  },
+  {
+    href: "/kyotei",
+    title: "モーター成績の見方と選び方のコツ",
+    desc: "2連率・3連率・スタートタイムから良モーターを見極める方法",
+    tag: "データ分析",
+    tagColor: "bg-purple-500/20 text-purple-300",
+    time: "6分で読める",
+  },
+  {
+    href: "/kyotei",
+    title: "競艇のオッズと舟券の還元率",
+    desc: "2連単・3連単・ボックス買いの期待値計算と購入戦略",
+    tag: "戦略",
+    tagColor: "bg-green-500/20 text-green-300",
+    time: "5分で読める",
+  },
+];
+
+const qa = [
+  {
+    q: "競艇の舟券はどこで買えますか？",
+    a: "全国のボートレース場・場外発売場（ボートピア）で購入できます。スマホからはboatracer（旧TELEBOAT）アプリでオンライン購入が可能。楽天Edyやクレジットカードでの入金にも対応しています。",
+  },
+  {
+    q: "なぜ1コース（インコース）が有利なのですか？",
+    a: "競艇は左回りで最初のターンマークが重要です。1コースはスタートラインに最も近く、第1ターンを最短距離で回れるため圧倒的に有利です。全国平均で1コースの1着率は55〜60%以上あります。",
+  },
+  {
+    q: "競艇のグレードはどう分かれていますか？",
+    a: "SG（最高峰）→G1→G2→G3→一般の順に格付けされます。SGは年6開催で最高賞金1億円以上。G1は年20回程度、各場で「周年記念」などで開催されます。",
+  },
+  {
+    q: "競艇のモーターとは何ですか？",
+    a: "競艇では選手全員が同じ規格のボートに乗りますが、モーター（エンジン）は抽選で割り当てられます。良いモーターを当てた選手は成績が上がりやすく、逆に悪いモーターだと実力がある選手でも苦戦します。",
+  },
+  {
+    q: "展示タイムとは何ですか？",
+    a: "本番レース直前に行われる練習走行（展示走行）のタイムです。直線を走るタイム（展示タイム）とターンの評価（展示ターン）から、当日の選手の仕上がりとモーターの調子を確認できます。",
+  },
 ];
 
 export default function KyoteiPage() {
@@ -66,62 +125,29 @@ export default function KyoteiPage() {
         </div>
       </section>
 
-      {/* 予想のコツ */}
+      {/* 予想ポイント */}
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-6">💡 競艇予想の4大ポイント</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-2xl font-black text-white mb-6">💡 競艇予想の6大ポイント</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {tips.map((t) => (
-              <div key={t.title} className="p-5 rounded-xl border border-cyan-700/30 bg-gradient-to-br from-cyan-900/20 to-[#0f0f1a]">
-                <div className="text-3xl mb-3">{t.icon}</div>
-                <h3 className="text-white font-bold mb-2">{t.title}</h3>
-                <p className="text-gray-400 text-sm">{t.desc}</p>
+              <div key={t.title} className="p-4 rounded-xl border border-cyan-700/30 bg-gradient-to-br from-cyan-900/20 to-[#0f0f1a]">
+                <div className="text-2xl mb-2">{t.icon}</div>
+                <h3 className="text-white font-bold text-sm mb-1">{t.title}</h3>
+                <p className="text-gray-400 text-xs">{t.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 全国場別データ */}
-      <section className="py-12 px-4 bg-[#0f0f1a]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-2">🗺️ 全国ボートレース場 1コース勝率</h2>
-          <p className="text-gray-400 text-sm mb-6">主要10場のサンプルデータ</p>
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[500px]">
-              <thead>
-                <tr className="border-b border-white/10 text-gray-400 text-sm">
-                  <th className="pb-3 text-left pl-4">競艇場</th>
-                  <th className="pb-3 text-center">地域</th>
-                  <th className="pb-3 text-center">水面特徴</th>
-                  <th className="pb-3 text-right">1コース勝率</th>
-                  <th className="pb-3 text-right pr-4">特記</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {stadiums.map((s) => (
-                  <tr key={s.name} className="hover:bg-white/3 transition-colors">
-                    <td className="py-3 pl-4 text-white font-bold">{s.name}</td>
-                    <td className="py-3 text-center text-gray-400 text-sm">{s.region}</td>
-                    <td className="py-3 text-center text-gray-400 text-sm">{s.feature}</td>
-                    <td className="py-3 text-right">
-                      <span className={`font-black ${parseInt(s.course1) >= 60 ? "text-[#d4af37]" : parseInt(s.course1) >= 50 ? "text-cyan-400" : "text-gray-300"}`}>
-                        {s.course1}
-                      </span>
-                    </td>
-                    <td className="py-3 pr-4 text-right text-gray-500 text-xs">{s.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+      {/* 全国場別データ（タブ切り替え） */}
+      <KyoteiClient />
 
       {/* 選手ランキング */}
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-6">👑 A1ランク選手TOP5</h2>
+          <h2 className="text-2xl font-black text-white mb-6">👑 A1ランク選手TOP6</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {players.map((p) => (
               <Card key={p.name} className="bg-[#0f0f1a] border-white/10 hover:border-cyan-700/40 transition-all">
@@ -145,21 +171,16 @@ export default function KyoteiPage() {
         </div>
       </section>
 
-      {/* グレード */}
+      {/* Q&A */}
       <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-6">🏆 競艇グレード・賞金一覧</h2>
-          <div className="space-y-3">
-            {grades.map((g) => (
-              <div key={g.grade} className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-[#0a0a14]">
-                <Badge className={`${g.color} text-sm font-black w-16 justify-center`}>{g.grade}</Badge>
-                <span className="text-white font-bold flex-1">{g.name}</span>
-                <span className="text-[#d4af37] font-black">{g.prize}</span>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-black text-white mb-6">❓ 競艇 よくある質問</h2>
+          <GenreQA items={qa} accentColor="text-cyan-400" />
         </div>
       </section>
+
+      {/* 関連記事 */}
+      <RelatedArticles articles={relatedArticles} title="📚 競艇攻略コンテンツ" />
 
       <AffiliateSection genre="競艇" />
     </div>

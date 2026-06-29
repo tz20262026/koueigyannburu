@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import AffiliateSection from "@/components/AffiliateSection";
+import RelatedArticles from "@/components/RelatedArticles";
+import GenreQA from "@/components/GenreQA";
+import AutoraceClient from "./AutoraceClient";
 
 export const metadata: Metadata = {
   title: "オートレース予想・データ分析",
@@ -11,35 +14,94 @@ export const metadata: Metadata = {
 };
 
 const stadiums = [
-  { name: "伊勢崎", pref: "群馬", feature: "本場SGが多い", nights: "夜開催あり" },
-  { name: "川口", pref: "埼玉", feature: "関東の中心", nights: "夜開催メイン" },
-  { name: "浜松", pref: "静岡", feature: "西の中心", nights: "昼・夜両方" },
-  { name: "山陽", pref: "岡山", feature: "西日本唯一", nights: "夜開催メイン" },
-  { name: "飯塚", pref: "福岡", feature: "九州の雄", nights: "昼開催メイン" },
-  { name: "川崎", pref: "神奈川", feature: "廃止（2024年）", nights: "-" },
-];
-
-const players = [
-  { rank: 1, name: "青山周平", pref: "伊勢崎", class: "特別選抜A", winRate: "29.8%", note: "絶対王者" },
-  { rank: 2, name: "荒尾聡", pref: "飯塚", class: "特別選抜A", winRate: "25.3%", note: "九州の雄" },
-  { rank: 3, name: "佐藤励", pref: "浜松", class: "特別選抜A", winRate: "23.1%", note: "浜松の若き王" },
-  { rank: 4, name: "松本やすし", pref: "飯塚", class: "特別選抜A", winRate: "21.6%", note: "ベテランの意地" },
-  { rank: 5, name: "岩見貴史", pref: "山陽", class: "選抜A", winRate: "19.2%", note: "山陽エース" },
-];
-
-const grades = [
-  { grade: "SG", name: "日本選手権", desc: "最高峰レース", color: "bg-amber-500/20 text-amber-300 border-amber-500/30" },
-  { grade: "GI", name: "スーパーレース", desc: "全国選手権など", color: "bg-red-500/20 text-red-300 border-red-500/30" },
-  { grade: "特選", name: "特別選抜", desc: "上位選手限定", color: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-  { grade: "選抜", name: "選抜戦", desc: "中位グループ", color: "bg-green-500/20 text-green-300 border-green-500/30" },
-  { grade: "予選", name: "予選戦", desc: "全選手が出走", color: "bg-gray-500/20 text-gray-300 border-gray-500/30" },
+  { name: "伊勢崎", pref: "群馬", feature: "本場SGが多い", nights: "夜開催あり", active: true },
+  { name: "川口", pref: "埼玉", feature: "関東の中心", nights: "夜開催メイン", active: true },
+  { name: "浜松", pref: "静岡", feature: "西の中心", nights: "昼・夜両方", active: true },
+  { name: "山陽", pref: "岡山", feature: "西日本唯一", nights: "夜開催メイン", active: true },
+  { name: "飯塚", pref: "福岡", feature: "九州の雄", nights: "昼開催メイン", active: true },
 ];
 
 const points = [
-  { icon: "⚙️", title: "機力（エンジン）", desc: "オートレースはエンジン成績が最重要。試走タイムと2連率をチェック" },
+  { icon: "⚙️", title: "機力（エンジン）", desc: "エンジン成績が最重要。試走タイムと2連率をチェック" },
   { icon: "📍", title: "枠番（インが有利）", desc: "内枠ほど有利。1・2枠の選手を中心に軸を決める" },
-  { icon: "⛅", title: "天候・気温", desc: "気温が高いとエンジンパワーが上がる。夏場は成績が安定しやすい" },
-  { icon: "🔄", title: "周回数", desc: "通常6周。後半になるほど上位選手の優位が崩れにくい" },
+  { icon: "⛅", title: "天候・気温", desc: "気温が高いとエンジンパワーが上がる。夏場は成績安定" },
+  { icon: "🔄", title: "周回数", desc: "通常6周。後半ほど上位選手の優位が崩れにくい" },
+  { icon: "📏", title: "試走タイム", desc: "本番前の試走タイムで当日のエンジン状態を把握する" },
+  { icon: "📈", title: "前走データ", desc: "直前の成績・乗り方から選手の調子と意欲を分析" },
+];
+
+const relatedArticles = [
+  {
+    href: "/autorace",
+    title: "オートレース完全入門：基本ルールと賭け方",
+    desc: "オートレースの仕組み・車券の種類・購入方法を初心者向けに解説",
+    tag: "初心者",
+    tagColor: "bg-orange-500/20 text-orange-300",
+    time: "8分で読める",
+  },
+  {
+    href: "/autorace",
+    title: "エンジン（機力）の見方と選手への影響",
+    desc: "オートレースはエンジン8割・選手2割。試走タイムの読み方を解説",
+    tag: "分析",
+    tagColor: "bg-amber-500/20 text-amber-300",
+    time: "6分で読める",
+  },
+  {
+    href: "/autorace",
+    title: "青山周平の強さの秘密とデータ分析",
+    desc: "絶対王者・青山周平の成績データと必勝パターンを徹底分析",
+    tag: "選手",
+    tagColor: "bg-red-500/20 text-red-300",
+    time: "7分で読める",
+  },
+  {
+    href: "/autorace",
+    title: "5場それぞれの特徴と攻略法",
+    desc: "伊勢崎・川口・浜松・山陽・飯塚の水面特性と穴の出やすさ",
+    tag: "攻略",
+    tagColor: "bg-blue-500/20 text-blue-300",
+    time: "9分で読める",
+  },
+  {
+    href: "/autorace",
+    title: "オートレースで高配当が出やすい条件",
+    desc: "雨・低気温・上位選手の機力不調時に穴が出やすい理由を解説",
+    tag: "穴狙い",
+    tagColor: "bg-purple-500/20 text-purple-300",
+    time: "5分で読める",
+  },
+  {
+    href: "/autorace",
+    title: "オートレースSGレース一覧と開催場",
+    desc: "日本選手権・スーパーレース・全日本選手権の格付けと賞金一覧",
+    tag: "レース情報",
+    tagColor: "bg-green-500/20 text-green-300",
+    time: "4分で読める",
+  },
+];
+
+const qa = [
+  {
+    q: "オートレースはどこで見られますか？購入もできますか？",
+    a: "全国5場（伊勢崎・川口・浜松・山陽・飯塚）の競走場で観戦・購入できます。インターネットでは「オッズパーク」「SPAT4」などで車券購入が可能。スマホでライブ映像も視聴できます。",
+  },
+  {
+    q: "試走タイムとは何ですか？",
+    a: "本番レース前に行われる試走（練習走行）のタイムです。1周のタイムを計測し、タイムが速いほどエンジンの調子が良い証拠です。競輪でいうモーター成績に相当し、予想の最重要指標です。",
+  },
+  {
+    q: "オートレースで穴が出やすい条件は？",
+    a: "雨天時・低気温時（エンジン特性が変わる）、上位選手のエンジンが不調な時、内枠の実力者が外枠からのスタートになった場合などです。気象条件は予想の大きな変数になります。",
+  },
+  {
+    q: "オートレースの還元率を教えてください",
+    a: "オートレースの払戻率は車券の種類によって異なります。単勝は75%、2車単・2車複は72%、3連単・3連複は70%程度です。他の公営ギャンブルと比べると還元率がやや低めです。",
+  },
+  {
+    q: "川崎競輪場が廃止されたと聞きましたが、オートレースも廃止はありますか？",
+    a: "かつては全国7場ありましたが、川崎（2024年廃止）により現在5場となりました。残る5場は現在も継続して開催中です。廃止には自治体の財政や観客動員数が影響します。",
+  },
 ];
 
 export default function AutoracePage() {
@@ -65,27 +127,29 @@ export default function AutoracePage() {
       {/* 予想ポイント */}
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-6">🔑 オートレース予想の鍵</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-2xl font-black text-white mb-6">🔑 オートレース予想の6つの鍵</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {points.map((p) => (
-              <div key={p.title} className="p-5 rounded-xl border border-orange-700/30 bg-gradient-to-br from-orange-900/20 to-[#0f0f1a]">
-                <div className="text-3xl mb-3">{p.icon}</div>
-                <h3 className="text-white font-bold mb-2">{p.title}</h3>
-                <p className="text-gray-400 text-sm">{p.desc}</p>
+              <div key={p.title} className="p-4 rounded-xl border border-orange-700/30 bg-gradient-to-br from-orange-900/20 to-[#0f0f1a]">
+                <div className="text-2xl mb-2">{p.icon}</div>
+                <h3 className="text-white font-bold text-sm mb-1">{p.title}</h3>
+                <p className="text-gray-400 text-xs">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* 選手・グレードタブ */}
+      <AutoraceClient />
+
       {/* 競走場 */}
-      <section className="py-12 px-4 bg-[#0f0f1a]">
+      <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-2">🏁 全国オートレース場</h2>
-          <p className="text-gray-400 text-sm mb-6">現在5場で開催（川崎は2024年廃止）</p>
+          <h2 className="text-2xl font-black text-white mb-2">🏁 全国オートレース場（現在5場）</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {stadiums.map((s) => (
-              <Card key={s.name} className={`border ${s.pref === "神奈川" ? "border-white/5 opacity-50" : "border-orange-700/30 hover:border-orange-500/50"} bg-[#0a0a14] transition-all`}>
+              <Card key={s.name} className="border border-orange-700/30 hover:border-orange-500/50 bg-[#0a0a14] transition-all">
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-xl font-black text-white">{s.name}</h3>
@@ -103,51 +167,16 @@ export default function AutoracePage() {
         </div>
       </section>
 
-      {/* 選手ランキング */}
-      <section className="py-12 px-4">
+      {/* Q&A */}
+      <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-6">👑 トップ選手ランキング</h2>
-          <div className="space-y-3">
-            {players.map((p) => (
-              <div key={p.name} className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-[#0f0f1a] hover:border-orange-700/40 transition-all">
-                <span className={`text-2xl font-black w-8 shrink-0 ${p.rank <= 3 ? "text-[#d4af37]" : "text-gray-600"}`}>
-                  {p.rank}
-                </span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-0.5">
-                    <span className="text-white font-bold">{p.name}</span>
-                    <span className="text-gray-500 text-sm">{p.pref}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-orange-500/20 text-orange-300 border-0 text-xs">{p.class}</Badge>
-                    <span className="text-gray-500 text-xs">{p.note}</span>
-                  </div>
-                </div>
-                <div className="text-right shrink-0">
-                  <div className="text-[#d4af37] font-black text-lg">{p.winRate}</div>
-                  <div className="text-gray-500 text-xs">勝率</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-black text-white mb-6">❓ オートレース よくある質問</h2>
+          <GenreQA items={qa} accentColor="text-orange-400" />
         </div>
       </section>
 
-      {/* グレード */}
-      <section className="py-12 px-4 bg-[#0f0f1a]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-black text-white mb-6">📊 レースグレード</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {grades.map((g) => (
-              <div key={g.grade} className="p-4 rounded-xl border border-white/10 bg-[#0a0a14]">
-                <Badge className={`${g.color} text-sm font-black mb-2`}>{g.grade}</Badge>
-                <div className="text-white font-bold">{g.name}</div>
-                <div className="text-gray-400 text-sm">{g.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 関連記事 */}
+      <RelatedArticles articles={relatedArticles} title="📚 オートレース攻略コンテンツ" />
 
       <AffiliateSection />
     </div>
