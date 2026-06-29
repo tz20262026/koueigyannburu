@@ -79,11 +79,11 @@ const genres = [
   },
 ];
 
-const todayRaces = [
-  { genre: "競馬", name: "東京10R 安田記念", time: "15:40", status: "G1", statusColor: "bg-red-500/20 text-red-300", href: "/keiba" },
-  { genre: "競艇", name: "大村SG第1日", time: "14:00", status: "SG", statusColor: "bg-amber-500/20 text-amber-300", href: "/kyotei" },
-  { genre: "競輪", name: "松山G1第2日", time: "20:00", status: "G1", statusColor: "bg-blue-500/20 text-blue-300", href: "/keirin" },
-  { genre: "オートレース", name: "伊勢崎11R", time: "19:30", status: "特選", statusColor: "bg-orange-500/20 text-orange-300", href: "/autorace" },
+const thisWeekRaces = [
+  { genre: "競馬", name: "函館7日目 B・L・クイーンS", time: "7/5(日)", status: "G3", statusColor: "bg-emerald-500/20 text-emerald-300", href: "/keiba" },
+  { genre: "競輪", name: "取手 水戸黄門賞 最終日", time: "6/30(火)", status: "G3", statusColor: "bg-blue-500/20 text-blue-300", href: "/keirin" },
+  { genre: "競艇", name: "次回SG オーシャンカップ（びわこ）", time: "7/28〜8/2", status: "SG予告", statusColor: "bg-amber-500/20 text-amber-300", href: "/kyotei" },
+  { genre: "オートレース", name: "川口ナイター開催中", time: "ナイター", status: "開催中", statusColor: "bg-orange-500/20 text-orange-300", href: "/autorace" },
 ];
 
 const stats = [
@@ -97,8 +97,8 @@ const pickups = [
   {
     href: "/keiba",
     icon: "🐎",
-    title: "【競馬】安田記念の注目馬と予想ポイント",
-    desc: "エフフォーリア vs パンサラッサ。オッズから読む本命・対抗の見解",
+    title: "【競馬】函館夏競馬の攻略ポイントと注目馬",
+    desc: "夏の洋芝・函館シーズン到来。洋芝適性・コース特性から本命を絞る方法を解説",
     color: "border-emerald-700/40",
     tag: "競馬",
     tagColor: "bg-emerald-500/20 text-emerald-300",
@@ -106,8 +106,8 @@ const pickups = [
   {
     href: "/kyotei",
     icon: "⛵",
-    title: "【競艇】大村SGの1コース勝率と注目選手",
-    desc: "イン勝率No.1の大村での戦い方。峰竜太の機力データを確認",
+    title: "【競艇】次回SG オーシャンカップ（びわこ）の注目選手",
+    desc: "7/28〜びわこで開催。峰竜太・白井英治ら上位A1選手の直近調子をチェック",
     color: "border-cyan-700/40",
     tag: "競艇",
     tagColor: "bg-cyan-500/20 text-cyan-300",
@@ -115,8 +115,8 @@ const pickups = [
   {
     href: "/takarakuji",
     icon: "🎯",
-    title: "【ロト7】最新当選数字と次回のホット数字",
-    desc: "第631回当選数字を公開。直近300回の出現頻度から次回を分析",
+    title: "【ロト6】直近300回のホット数字・コールド数字分析",
+    desc: "出現頻度が高い数字と低い数字を徹底分析。次回購入の参考データを公開",
     color: "border-purple-700/40",
     tag: "宝くじ",
     tagColor: "bg-purple-500/20 text-purple-300",
@@ -124,8 +124,8 @@ const pickups = [
   {
     href: "/keirin",
     icon: "🚴",
-    title: "【競輪】古性優作の最近の成績と買い方",
-    desc: "現最強SSランクの古性優作。近況と今後の出走予定をチェック",
+    title: "【競輪】取手G3 水戸黄門賞の見どころと最終日予想",
+    desc: "6/30最終日。ライン構成と決まり手データから3連単の組み立てを解説",
     color: "border-blue-700/40",
     tag: "競輪",
     tagColor: "bg-blue-500/20 text-blue-300",
@@ -245,17 +245,16 @@ export default function HomePage() {
       <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-black text-white">🔥 今日の注目レース</h2>
-            <Badge className="bg-red-500/20 text-red-300 border-red-500/30">LIVE</Badge>
+            <h2 className="text-2xl font-black text-white">🔥 今週・来週の注目レース</h2>
+            <Badge className="bg-[#d4af37]/20 text-[#d4af37] border-[#d4af37]/30">2026/6/29週</Badge>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {todayRaces.map((race) => (
+            {thisWeekRaces.map((race) => (
               <Link key={race.name} href={race.href}>
                 <div className="flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-[#0a0a14] hover:border-[#d4af37]/30 transition-all">
-                  <div className="text-[#d4af37] font-black text-2xl w-12 text-center shrink-0">
-                    {race.time.split(":")[0]}
-                    <span className="text-sm text-gray-500">:{race.time.split(":")[1]}</span>
+                  <div className="text-[#d4af37] font-black text-sm w-14 text-center shrink-0 leading-tight">
+                    {race.time}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-xs text-gray-500 mb-0.5">{race.genre}</div>
@@ -266,6 +265,7 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <p className="text-center text-gray-600 text-xs mt-4">※最新の開催情報はJRA・各競技公式サイトでご確認ください</p>
         </div>
       </section>
 
