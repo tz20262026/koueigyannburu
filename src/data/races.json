@@ -1,0 +1,38 @@
+{
+  "updated": "2026-06-29",
+  "weekLabel": "2026/6/29週",
+  "races": [
+    {
+      "genre": "競馬",
+      "name": "函館・福島競馬 開催中",
+      "time": "今週末(7/4〜)",
+      "status": "開催中",
+      "statusColor": "bg-emerald-500/20 text-emerald-300",
+      "href": "/keiba"
+    },
+    {
+      "genre": "競輪",
+      "name": "グレードレース開催中",
+      "time": "今週",
+      "status": "G3",
+      "statusColor": "bg-blue-500/20 text-blue-300",
+      "href": "/keirin"
+    },
+    {
+      "genre": "競艇",
+      "name": "次回SG オーシャンカップ（びわこ）",
+      "time": "7/28〜8/2",
+      "status": "SG予告",
+      "statusColor": "bg-amber-500/20 text-amber-300",
+      "href": "/kyotei"
+    },
+    {
+      "genre": "オートレース",
+      "name": "川口オートレース開催中",
+      "time": "本日開催",
+      "status": "開催中",
+      "statusColor": "bg-orange-500/20 text-orange-300",
+      "href": "/autorace"
+    }
+  ]
+}

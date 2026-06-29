@@ -1,0 +1,42 @@
+name: 週次レース情報自動更新
+
+on:
+  schedule:
+    # 毎週月曜 朝6時（JST）= 日曜 21:00 UTC
+    - cron: "0 21 * * 0"
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: レース情報を更新
+        run: node scripts/update-races.mjs
+
+      - name: 変更があればコミット＆プッシュ
+        run: |
+          git config user.name "WINLAB Bot"
+          git config user.email "bot@winlab.jp"
+          git add src/data/races.json
+          if git diff --cached --quiet; then
+            echo "変更なし・スキップ"
+          else
+            git commit -m "chore: 週次レース情報自動更新 $(date '+%Y-%m-%d')"
+            git checkout -- . 2>/dev/null || true
+            git clean -fd 2>/dev/null || true
+            for i in 1 2 3; do
+              git pull --rebase origin master && git push && break
+              sleep $((i * 15))
+            done
+          fi

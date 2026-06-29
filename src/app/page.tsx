@@ -9,6 +9,7 @@ import BetCalculator from "@/components/BetCalculator";
 import GamblingQuiz from "@/components/GamblingQuiz";
 import RaceCountdown from "@/components/RaceCountdown";
 import StrategyGuide from "@/components/StrategyGuide";
+import racesData from "@/data/races.json";
 
 export const metadata: Metadata = {
   title: "WINLAB｜公営ギャンブル予想・データ分析",
@@ -79,12 +80,8 @@ const genres = [
   },
 ];
 
-const thisWeekRaces = [
-  { genre: "競馬", name: "函館7日目 B・L・クイーンS", time: "7/5(日)", status: "G3", statusColor: "bg-emerald-500/20 text-emerald-300", href: "/keiba" },
-  { genre: "競輪", name: "取手 水戸黄門賞 最終日", time: "6/30(火)", status: "G3", statusColor: "bg-blue-500/20 text-blue-300", href: "/keirin" },
-  { genre: "競艇", name: "次回SG オーシャンカップ（びわこ）", time: "7/28〜8/2", status: "SG予告", statusColor: "bg-amber-500/20 text-amber-300", href: "/kyotei" },
-  { genre: "オートレース", name: "川口ナイター開催中", time: "ナイター", status: "開催中", statusColor: "bg-orange-500/20 text-orange-300", href: "/autorace" },
-];
+const thisWeekRaces = racesData.races;
+const weekLabel = racesData.weekLabel;
 
 const stats = [
   { label: "掲載ジャンル", value: "5" },
@@ -246,7 +243,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-black text-white">🔥 今週・来週の注目レース</h2>
-            <Badge className="bg-[#d4af37]/20 text-[#d4af37] border-[#d4af37]/30">2026/6/29週</Badge>
+            <Badge className="bg-[#d4af37]/20 text-[#d4af37] border-[#d4af37]/30">{weekLabel}</Badge>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
