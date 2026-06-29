@@ -4,12 +4,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import TakarakujiClient from "./TakarakujiClient";
+import LotoNumberPicker from "@/components/LotoNumberPicker";
+import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import StrategyGuide from "@/components/StrategyGuide";
 
 export const metadata: Metadata = {
   title: "宝くじ・LOTO当選数字・確率データ",
   description:
-    "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。",
-  keywords: ["宝くじ", "ロト6", "ロト7", "ミニロト", "ナンバーズ", "当選確率", "当選数字", "LOTO"],
+    "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。よく出る数字・キャリーオーバー情報も掲載。",
+  keywords: ["宝くじ", "ロト6当選番号", "ロト7当選番号", "ミニロト", "ナンバーズ", "当選確率", "当選数字", "LOTO", "ホット数字", "宝くじ購入代行"],
+  alternates: { canonical: "https://koueigyannburu.vercel.app/takarakuji" },
+  openGraph: {
+    title: "宝くじ・LOTO当選数字・確率データ | WINLAB",
+    description: "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。",
+    url: "https://koueigyannburu.vercel.app/takarakuji",
+    type: "website",
+  },
 };
 
 const lotteries = [
@@ -179,6 +189,12 @@ const qa = [
 export default function TakarakujiPage() {
   return (
     <div>
+      <WebPageJsonLd
+        name="宝くじ・LOTO当選数字・確率データ | WINLAB"
+        description="ロト6・ロト7・ミニロト・ナンバーズの当選確率・出現傾向データを徹底分析。"
+        url="https://koueigyannburu.vercel.app/takarakuji"
+      />
+      <FaqJsonLd items={qa} />
       {/* ヒーロー */}
       <section className="relative bg-gradient-to-br from-purple-950 to-[#08080f] py-16 px-4 border-b border-white/10">
         <div className="max-w-5xl mx-auto">
@@ -279,6 +295,128 @@ export default function TakarakujiPage() {
         </div>
       </section>
 
+      {/* 攻略コラム */}
+      <section className="py-12 px-4">
+        <div className="max-w-5xl mx-auto">
+          <StrategyGuide
+            title="📖 宝くじ・LOTO 攻略コラム"
+            accentColor="text-purple-400"
+            articles={[
+              {
+                title: "ロト6・ロト7・ミニロト の選び方：目的別おすすめ",
+                tag: "比較",
+                tagColor: "bg-purple-500/20 text-purple-300",
+                summary: "3つのロトはそれぞれ特性が異なる。夢を追うならロト7、当選頻度を上げたいならミニロト。あなたのスタイルに合った選び方を解説。",
+                body: `◆ ロト7（300円）
+- 1等：最高10億円（キャリーオーバー時）
+- 当選確率：1/1,029万
+- 向いている人：とにかく大きな夢を追いたい
+
+◆ ロト6（200円）
+- 1等：最高6億円（キャリーオーバー時）
+- 当選確率：1/609万
+- 向いている人：ロト7よりやや現実的に億を狙いたい
+
+◆ ミニロト（200円）
+- 1等：最高1,000万円
+- 当選確率：1/16.9万
+- 向いている人：小さくてもいいから当選の喜びを体験したい
+
+◆ コスパ比較
+ミニロトの1等確率はロト6の36倍当たりやすい。
+その代わり最高賞金が1,000万円と低い。
+
+夢を追うなら「ロト7をキャリーオーバー時だけ買う」戦略が最も理にかなっています。
+通常時は1〜2口で十分。キャリーオーバーが5億を超えたタイミングで多めに購入するのがコツです。`,
+              },
+              {
+                title: "「キャリーオーバー」を狙うのが最も賢い宝くじ戦略",
+                tag: "戦略",
+                tagColor: "bg-amber-500/20 text-amber-300",
+                summary: "キャリーオーバー時はスペックが上がるだけでなく、期待値そのものが上昇する。この買い時を逃さない方法。",
+                body: `通常のロト6の1等賞金は2〜3億円程度。
+キャリーオーバーが続くと最大6億円まで膨れ上がります。
+
+◆ 期待値の変化
+通常時：200円 × 1/609万 × 2億円 ≈ 期待値 32.8円（回収率16.4%）
+
+キャリーオーバー6億時：200円 × 1/609万 × 6億円 ≈ 期待値 98.5円（回収率49.2%）
+
+キャリーオーバー時は期待値が3倍に跳ね上がります！
+
+◆ キャリーオーバーの確認方法
+① 宝くじ公式サイト（takarakuji-official.jp）でリアルタイム情報確認
+② ロト6: 月曜・木曜の抽選後に確認
+③ キャリーオーバー3億円超えたら購入検討
+④ 5億円超なら口数を増やす価値あり
+
+◆ 注意点
+人気が集中するため当選者も増えます。
+1等が出ても分割当選になりやすいため、
+「自分だけが当選する」という確率自体は変わりません。`,
+              },
+              {
+                title: "数字の選び方：ランダム vs 誕生日 vs ホット数字",
+                tag: "数字選択",
+                tagColor: "bg-blue-500/20 text-blue-300",
+                summary: "自分で数字を選ぶのとクイックピックはどちらが有利？ホット数字は本当に出やすい？科学的な観点から解説。",
+                body: `宝くじは「独立試行」のため、過去の結果が次回に影響することは数学的にありません。
+
+◆ 選び方別のメリット・デメリット
+
+【クイックピック（ランダム選択）】
+メリット：完全ランダムで数字が偏らない
+デメリット：思い入れがない、当選時の感動が小さい
+
+【自分で選ぶ（誕生日・記念日）】
+メリット：当選時の感動が大きい
+デメリット：1〜31に偏りがちで、32以上の数字が出ると負け
+
+【ホット数字（よく出る数字）を選ぶ】
+メリット：心理的安心感がある
+デメリット：実際には確率に影響なし
+
+◆ 現実的なアドバイス
+数学的には「どれを選んでも当選確率は同じ」です。
+だから楽しさで選び方を決めるのが一番。
+
+ただし、1〜31の数字のみを選ぶのは避けた方が良い。
+他の購入者と数字が被りやすく、分割当選になりやすいから。
+32以上の数字を必ず1〜2個混ぜることで分割リスクが下がります。`,
+              },
+              {
+                title: "宝くじに当選したら最初にすること（高額当選の手続き）",
+                tag: "当選後",
+                tagColor: "bg-green-500/20 text-green-300",
+                summary: "億超え当選は夢だが、当選後の手続きを知らないと損をする可能性も。当選直後から必要な行動を順番に解説。",
+                body: `高額当選（50万円超）はみずほ銀行の本支店でのみ換金できます。
+
+◆ 当選後すぐにすること
+① 当選くじを大切に保管（コピーも取る）
+② 家族・親しい人への報告は慎重に（詐欺・トラブルのリスクあり）
+③ みずほ銀行の宝くじ担当窓口に予約を入れる
+
+◆ 税金について
+宝くじの当選金は「非課税」です。
+所得税も住民税もかかりません。
+ただし以下のケースは注意：
+- 当選金を他人にあげると → 贈与税の対象
+- 当選金で運用した際の利益 → 通常の税金対象
+
+◆ 受け取りまでの流れ
+① 本人確認書類（運転免許証など）を持参
+② みずほ銀行本支店の宝くじ専門窓口へ
+③ 口座への振り込みまで1〜3営業日
+
+◆ 知っておくべき注意点
+1億円を突然受け取ると生活が激変して精神的に不安定になるケースも。
+ファイナンシャルプランナーや税理士への相談を強くおすすめします。`,
+              },
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Q&A */}
       <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-5xl mx-auto">
@@ -289,6 +427,86 @@ export default function TakarakujiPage() {
 
       {/* 関連記事 */}
       <RelatedArticles articles={relatedArticles} title="📚 宝くじ・LOTO攻略コンテンツ" />
+
+      {/* 数字選択シミュレーター */}
+      <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-black text-white mb-6 text-center">🎯 数字選択シミュレーター</h2>
+          <LotoNumberPicker />
+        </div>
+      </section>
+
+      {/* 宝くじ購入代行 アフィリエイト PR */}
+      <section className="py-12 px-4 bg-[#0f0f1a]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-6">
+            <span className="inline-block bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30 rounded-full px-3 py-1 text-xs font-semibold mb-3">
+              PR・広告
+            </span>
+            <h2 className="text-2xl font-black text-white">
+              行列なしで縁起の良い売り場から購入代行
+            </h2>
+            <p className="text-gray-400 text-sm mt-2">
+              高額当選者輩出の有名売り場から自宅で注文できる購入代行サービス
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-xl border border-yellow-700/40 bg-gradient-to-br from-yellow-950/50 to-[#0f0f1a] p-5 hover:border-yellow-600/60 transition-all">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">🥇</span>
+                <div>
+                  <div className="text-white font-black text-lg">ドリームチャンス</div>
+                  <div className="text-yellow-400 text-xs font-semibold">西銀座チャンスセンター購入代行</div>
+                </div>
+              </div>
+              <ul className="text-gray-300 text-sm space-y-1 mb-4">
+                <li>✅ 35年連続1等当選の伝説の売り場</li>
+                <li>✅ 行列不要・24時間ネットで注文</li>
+                <li>✅ 損害補償付き書留で安全配送</li>
+                <li>✅ 大安吉日に購入代行</li>
+              </ul>
+              <a
+                href="https://px.a8.net/svt/ejp?a8mat=4B67CJ+3NKTGY+4GLE+5YJRM"
+                rel="nofollow"
+                target="_blank"
+                className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-yellow-600 to-amber-500 text-white font-black hover:opacity-90 transition-opacity"
+              >
+                宝くじ購入代行はドリームチャンス →
+              </a>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img width={1} height={1} src="https://www13.a8.net/0.gif?a8mat=4B67CJ+3NKTGY+4GLE+5YJRM" alt="" style={{ display: 'none' }} />
+            </div>
+            <div className="rounded-xl border border-purple-700/40 bg-gradient-to-br from-purple-950/50 to-[#0f0f1a] p-5 hover:border-purple-600/60 transition-all">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">🥈</span>
+                <div>
+                  <div className="text-white font-black text-lg">ドリームウェイ</div>
+                  <div className="text-purple-400 text-xs font-semibold">日本一の売り場から購入代行</div>
+                </div>
+              </div>
+              <ul className="text-gray-300 text-sm space-y-1 mb-4">
+                <li>✅ 高額当選者多数輩出の有名売り場</li>
+                <li>✅ 確定率66.6%・安心実績</li>
+                <li>✅ プレゼント需要にも対応</li>
+                <li>✅ 購入指定日から1週間以内に届く</li>
+              </ul>
+              <a
+                href="https://px.a8.net/svt/ejp?a8mat=4B67CJ+2W6VN6+3A98+68EPE"
+                rel="nofollow"
+                target="_blank"
+                className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-violet-500 text-white font-black hover:opacity-90 transition-opacity"
+              >
+                ドリームウェイで購入代行 →
+              </a>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img width={1} height={1} src="https://www13.a8.net/0.gif?a8mat=4B67CJ+2W6VN6+3A98+68EPE" alt="" style={{ display: 'none' }} />
+            </div>
+          </div>
+          <p className="text-center text-gray-600 text-xs mt-4">
+            ※当サイトはアフィリエイト広告を利用しています
+          </p>
+        </div>
+      </section>
 
       {/* 購入CTA */}
       <section className="py-12 px-4">

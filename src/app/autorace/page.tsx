@@ -5,12 +5,22 @@ import AffiliateSection from "@/components/AffiliateSection";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import AutoraceClient from "./AutoraceClient";
+import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import BetCalculator from "@/components/BetCalculator";
+import StrategyGuide from "@/components/StrategyGuide";
 
 export const metadata: Metadata = {
   title: "オートレース予想・データ分析",
   description:
-    "オートレースの選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。",
-  keywords: ["オートレース予想", "オートレースデータ", "オート攻略", "穴狙い", "オートレース選手"],
+    "オートレースの選手データ・機力（エンジン）分析。穴狙いで高配当を狙う攻略法を徹底解説。伊勢崎・浜松・川口・飯塚・山陽の全5場対応。",
+  keywords: ["オートレース予想", "オートレースデータ", "オート攻略", "穴狙い", "オートレース選手", "伊勢崎オートレース", "機力分析"],
+  alternates: { canonical: "https://koueigyannburu.vercel.app/autorace" },
+  openGraph: {
+    title: "オートレース予想・データ分析 | WINLAB",
+    description: "オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。",
+    url: "https://koueigyannburu.vercel.app/autorace",
+    type: "website",
+  },
 };
 
 const stadiums = [
@@ -107,6 +117,12 @@ const qa = [
 export default function AutoracePage() {
   return (
     <div>
+      <WebPageJsonLd
+        name="オートレース予想・データ分析 | WINLAB"
+        description="オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。"
+        url="https://koueigyannburu.vercel.app/autorace"
+      />
+      <FaqJsonLd items={qa} />
       {/* ヒーロー */}
       <section className="relative bg-gradient-to-br from-orange-950 to-[#08080f] py-16 px-4 border-b border-white/10">
         <div className="max-w-5xl mx-auto">
@@ -167,6 +183,110 @@ export default function AutoracePage() {
         </div>
       </section>
 
+      {/* 攻略コラム */}
+      <section className="py-12 px-4">
+        <div className="max-w-5xl mx-auto">
+          <StrategyGuide
+            title="📖 オートレース攻略コラム"
+            accentColor="text-orange-400"
+            articles={[
+              {
+                title: "試走タイムで機力（エンジン）を判断する方法",
+                tag: "基本",
+                tagColor: "bg-orange-500/20 text-orange-300",
+                summary: "オートレース予想の最重要指標「試走タイム」。数字の読み方と他選手との比較方法を初心者向けに解説。",
+                body: `オートレースでは本番前に試走（試験走行）が行われ、そのタイムが予想の最大指標になります。
+
+◆ 試走タイムの目安（1周タイム）
+各場・気温によって異なりますが、一般的に：
+- 他選手より0.1秒以上速い → 絶好調の機力
+- 平均タイム前後 → 標準的な機力
+- 他選手より0.2秒以上遅い → 機力不良の可能性
+
+◆ タイムと順位の両方を見る
+タイム自体だけでなく、出走選手の中での相対的な位置が重要です。
+同じ3.4秒でも、他の選手が3.6秒なら断然のトップ機力です。
+
+◆ 注意点
+試走タイムが速くても不調なケース：
+- 前走で機力を消耗した直後
+- スタートラインでのセット調整不足
+- 気温急変による調整不足
+
+試走タイムは「その日の機力」の目安。過去の2連率と組み合わせて判断するのが基本です。
+
+◆ 実践的な使い方
+試走1位の選手を1着固定にして、残りをフォーメーションで購入する。
+これだけで「なんとなく買い」よりも合理的な予想になります。`,
+              },
+              {
+                title: "オートレースで穴が出るパターン5選",
+                tag: "穴狙い",
+                tagColor: "bg-red-500/20 text-red-300",
+                summary: "人気選手が絡まないサプライズが起きやすい条件を解説。高配当を狙うならこの5パターンを覚えておこう。",
+                body: `オートレースは競馬や競艇と比べて荒れにくいとされますが、
+以下の条件が重なると穴が出やすくなります。
+
+◆ 穴が出やすいパターン5つ
+
+① 気温が急激に下がった日
+エンジンの設定が合わず、強い選手でもタイムが出ない。
+前日より5℃以上気温が下がった場合は要注意。
+
+② 人気選手の試走タイムが平均以下
+「実績はあるが今日は機力が低い」状況。
+試走でベテラン選手が下位になっていたら穴のチャンス。
+
+③ 若手・B級選手が試走1位のとき
+格上選手でも機力が劣れば無力。実力差が縮まる。
+
+④ 1枠（内枠）に実力下位の選手が入ったとき
+オートレースも内枠が有利なため、通常は内枠の選手が本命。
+でも機力が劣る内枠は、外から強い機力選手に早々に抜かれる。
+
+⑤ スタートが乱れた後のレース
+前のレースで激しい接触・落車があった後は、選手心理が乱れやすく
+思わぬ走りが出やすい。`,
+              },
+              {
+                title: "全国5場の特徴と場別攻略ポイント",
+                tag: "場別",
+                tagColor: "bg-amber-500/20 text-amber-300",
+                summary: "伊勢崎・川口・浜松・山陽・飯塚の5場それぞれの特性と予想への活かし方を詳しく解説。",
+                body: `現在の全国5場それぞれに独自の特性があります。
+
+◆ 伊勢崎オートレース場（群馬）
+- SGの本場として最も格式が高い
+- コースが広く、外捲りが出やすい
+- 人気上位が堅い傾向だがSGは荒れることも
+
+◆ 川口オートレース場（埼玉）
+- 関東の中心。ナイター開催がメイン
+- コースが狭めで内枠が有利な傾向
+- 地元の川口地区選手が強い
+
+◆ 浜松オートレース場（静岡）
+- 西日本への窓口的な存在
+- 昼・夜両方の開催がある
+- 機力差が出やすいコース設計
+
+◆ 山陽オートレース場（岡山）
+- 西日本唯一のオートレース場
+- ナイター中心で暗さが予想を難しくする
+- ローカル色が強く、地元選手有利
+
+◆ 飯塚オートレース場（福岡）
+- 九州の雄。昼開催が多い
+- 観客数が多く活気がある
+- 気温変化が激しく、試走タイムが変動しやすい
+
+まず1〜2場に絞って予想精度を高めるのが効率的です。`,
+              },
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Q&A */}
       <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-5xl mx-auto">
@@ -177,6 +297,13 @@ export default function AutoracePage() {
 
       {/* 関連記事 */}
       <RelatedArticles articles={relatedArticles} title="📚 オートレース攻略コンテンツ" />
+
+      {/* 車券計算機 */}
+      <section className="py-12 px-4 bg-[#0f0f1a]">
+        <div className="max-w-2xl mx-auto">
+          <BetCalculator />
+        </div>
+      </section>
 
       <AffiliateSection />
     </div>

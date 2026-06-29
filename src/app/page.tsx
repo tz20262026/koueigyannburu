@@ -1,7 +1,20 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import AffiliateSection from "@/components/AffiliateSection";
+import LuckyGame from "@/components/LuckyGame";
+import { SiteJsonLd } from "@/components/JsonLd";
+import BetCalculator from "@/components/BetCalculator";
+import GamblingQuiz from "@/components/GamblingQuiz";
+import RaceCountdown from "@/components/RaceCountdown";
+import StrategyGuide from "@/components/StrategyGuide";
+
+export const metadata: Metadata = {
+  title: "WINLAB｜公営ギャンブル予想・データ分析",
+  description: "競馬・競輪・競艇・オートレース・宝くじの予想データ分析サイト。勝率UPに役立つ情報を徹底解説。JRAオッズ・競艇24場データ・競輪SS選手・ロト6当選番号を網羅。",
+  alternates: { canonical: "https://koueigyannburu.vercel.app" },
+};
 
 const genres = [
   {
@@ -140,6 +153,7 @@ const pickups = [
 export default function HomePage() {
   return (
     <div className="min-h-screen">
+      <SiteJsonLd />
       {/* ヒーロー */}
       <section className="relative overflow-hidden hero-gradient py-20 px-4">
         <div className="relative max-w-5xl mx-auto text-center">
@@ -285,6 +299,170 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* インタラクティブツール3本 */}
+      <section className="bg-[#0a0a14] border-y border-white/10 py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-black text-white mb-1">🎲 無料ツール・ゲーム</h2>
+            <p className="text-gray-500 text-sm">予想に役立つ計算機・ゲームを使ってみよう</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-1">
+              <RaceCountdown />
+            </div>
+            <div className="lg:col-span-1">
+              <BetCalculator />
+            </div>
+            <div className="lg:col-span-1">
+              <div className="rounded-2xl border border-white/10 bg-[#0f0f1a] p-5 h-full">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-2xl">🔮</span>
+                  <div>
+                    <h3 className="text-white font-black text-lg">今日のラッキーナンバー</h3>
+                    <p className="text-gray-500 text-xs">生年月日×今日の日付で算出</p>
+                  </div>
+                </div>
+                <LuckyGame />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ギャンブル知識クイズ */}
+      <section className="py-12 px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl font-black text-white mb-1">🧠 ギャンブル知識クイズ</h2>
+            <p className="text-gray-500 text-sm">全6問・あなたのギャンブル知識レベルをチェック！</p>
+          </div>
+          <GamblingQuiz />
+        </div>
+      </section>
+
+      {/* 公営ギャンブル総合攻略コラム */}
+      <section className="py-12 px-4 bg-[#0a0a14] border-y border-white/10">
+        <div className="max-w-5xl mx-auto">
+          <StrategyGuide
+            title="📚 公営ギャンブル総合攻略コラム"
+            accentColor="text-[#d4af37]"
+            articles={[
+              {
+                title: "初心者必読：公営ギャンブル5種類の「向き不向き」を正直に解説",
+                tag: "初心者",
+                tagColor: "bg-[#d4af37]/20 text-[#d4af37]",
+                summary: "競馬・競輪・競艇・オートレース・宝くじ、どれが自分に合っているかわからない人へ。各ジャンルの特性と始め方を比較解説。",
+                body: `◆ 少額で楽しみたい → 宝くじ・ミニロト
+200円から参加でき、ハマりにくい。スロットより確率が透明。
+でも当選確率は現実的に低いことを覚悟する必要がある。
+
+◆ データ分析が好き → 競馬
+膨大な過去データが無料で公開されており、分析が最もやりやすい。
+JRA公式で過去10年分のレースデータを無料確認できる。
+
+◆ 初心者でも比較的わかりやすい → 競艇
+「1コースが有利」というシンプルな法則があり、ルールが覚えやすい。
+選手数が6艇と少ないため、情報を絞り込みやすい。
+
+◆ 高配当を狙いたい → 競輪
+ライン戦術が崩れた時に大荒れする。3連単で100万超えも珍しくない。
+
+◆ 穴を狙いたい → オートレース
+試走タイムという明快な指標があるため、機力差を見極めやすい。
+
+どのジャンルから始めるか迷ったら「競艇」がおすすめです。
+ルールがシンプルで、データも整理されており、入門しやすい公営ギャンブルです。`,
+              },
+              {
+                title: "公営ギャンブル共通「還元率」の真実：胴元が取る割合を知ろう",
+                tag: "基礎知識",
+                tagColor: "bg-blue-500/20 text-blue-300",
+                summary: "公営ギャンブルは「払戻率」が定められており、長期的に見ると必ず負ける設計。この前提を知った上で楽しむことが大切。",
+                body: `公営ギャンブルには「払戻率」という概念があり、
+投じたお金のうち何%が払い戻されるかが決まっています。
+
+◆ 各ジャンルの払戻率（目安）
+- 競馬（JRA）：単勝/複勝 80% / 3連単 72.5%
+- 競輪：2車単/2車複 75% / 3連単 72.5%
+- 競艇：2連単 77.5% / 3連単 74.8%
+- オートレース：単勝 75% / 3連単 70%
+- 宝くじ：約46%
+
+◆ これが意味すること
+1,000回買い続けると平均で25〜54%が損失になります。
+つまり「勝ち続けるのは構造的に不可能」な設計です。
+
+◆ だからこそ大切な考え方
+① エンターテインメント費として楽しむ（映画代やゲーム課金と同じ感覚）
+② 1回あたりの金額を決めて守る（月予算1万円など）
+③ 「当てよう」より「楽しもう」にマインドシフトする
+
+競馬で100万円当てるより、毎週500円ずつ楽しみながら
+「今日は当たった！」と喜ぶ方が人生には価値があります。`,
+              },
+              {
+                title: "ギャンブル依存を防ぐ3つのルール：楽しく続けるために",
+                tag: "注意",
+                tagColor: "bg-red-500/20 text-red-300",
+                summary: "公営ギャンブルは娯楽として楽しむのが正解。依存してしまうリスクとその防ぎ方を知っておこう。",
+                body: `公営ギャンブルは適切に楽しめば人生を豊かにする娯楽の一つです。
+でもルールなく続けると生活を圧迫するリスクがあります。
+
+◆ 3つのルール
+
+【ルール1：月の予算を決めて守る】
+最初に「月いくらまで」を決める。
+負けて追加するのは絶対NG。
+
+【ルール2：勝った分はすぐ口座に戻す】
+利益をそのまま次のゲームに使わない。
+「今日の利益はここまで」と引き際を決める。
+
+【ルール3：生活費・貯金には絶対手をつけない】
+「ゲーム代」から支出。生活費やローン返済は別口座で管理する。
+
+◆ 心配な場合の相談窓口
+・ギャンブル等依存症相談ポータルサイト（厚生労働省）
+・全国依存症家族会連合会
+・自助グループ「GA（ギャンブラーズ・アノニマス）」
+
+楽しみながら適度に付き合える範囲で公営ギャンブルを楽しみましょう。`,
+              },
+              {
+                title: "【プロが使う】「期待値プラス」の券種・タイミングを見つける方法",
+                tag: "上級",
+                tagColor: "bg-red-500/20 text-red-300",
+                summary: "長期的に回収率100%超えを目指す思考法。競馬・競艇・競輪で共通して使える「期待値管理」の基礎を解説。",
+                body: `公営ギャンブルで長期収支をプラスにしているプレイヤーは実在します。
+彼らが使っているのが「期待値管理」という考え方です。
+
+◆ 期待値とは
+「この買い方を続けたら平均いくら返ってくるか」の計算式：
+期待値 = オッズ × 実際の勝率
+
+例：オッズ10倍の馬の本当の勝率が15%の場合
+期待値 = 10 × 15% = 150円（100円投資に対して）→ プラス!
+
+◆ 期待値をプラスにするための条件
+① 「オッズが実際の実力より過大評価されている」馬・選手を選ぶ
+② 人気選手・本命馬には人気分の割引（過小評価）がある
+③ データを蓄積して自分だけの「勝ちパターン」を見つける
+
+◆ 実践的なアプローチ
+1. 特定のレース条件（距離・場所・馬場状態）に絞る
+2. そのデータを100件以上集める
+3. 実際の勝率 vs オッズを計算する
+4. 期待値がプラスの条件のみ買い続ける
+
+期待値プラスの買い方は確かに存在しますが、
+データ収集・分析に時間と根気が必要です。
+「コツコツ型」の人が最も向いています。`,
+              },
+            ]}
+          />
         </div>
       </section>
 

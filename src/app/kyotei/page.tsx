@@ -5,12 +5,22 @@ import AffiliateSection from "@/components/AffiliateSection";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import KyoteiClient from "./KyoteiClient";
+import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import KyoteiCalculator from "@/components/KyoteiCalculator";
+import StrategyGuide from "@/components/StrategyGuide";
 
 export const metadata: Metadata = {
   title: "競艇（ボートレース）予想・データ分析",
   description:
-    "競艇（ボートレース）の全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。",
-  keywords: ["競艇予想", "ボートレース", "競艇攻略", "1コース", "水面条件", "競艇データ"],
+    "競艇（ボートレース）の全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。無料予想・SG情報も掲載。",
+  keywords: ["競艇予想", "ボートレース", "競艇攻略", "1コース", "水面条件", "競艇データ", "ボートレース無料予想", "SG"],
+  alternates: { canonical: "https://koueigyannburu.vercel.app/kyotei" },
+  openGraph: {
+    title: "競艇（ボートレース）予想・データ分析 | WINLAB",
+    description: "競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。",
+    url: "https://koueigyannburu.vercel.app/kyotei",
+    type: "website",
+  },
 };
 
 const players = [
@@ -108,6 +118,12 @@ const qa = [
 export default function KyoteiPage() {
   return (
     <div>
+      <WebPageJsonLd
+        name="競艇（ボートレース）予想・データ分析 | WINLAB"
+        description="競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。"
+        url="https://koueigyannburu.vercel.app/kyotei"
+      />
+      <FaqJsonLd items={qa} />
       {/* ヒーロー */}
       <section className="relative bg-gradient-to-br from-cyan-950 to-[#08080f] py-16 px-4 border-b border-white/10">
         <div className="max-w-5xl mx-auto">
@@ -171,11 +187,137 @@ export default function KyoteiPage() {
         </div>
       </section>
 
-      {/* Q&A */}
+      {/* 攻略コラム */}
       <section className="py-12 px-4 bg-[#0f0f1a]">
+        <div className="max-w-5xl mx-auto">
+          <StrategyGuide
+            title="📖 競艇攻略コラム"
+            accentColor="text-cyan-400"
+            articles={[
+              {
+                title: "競艇は「1コース×良モーター」が最強の組み合わせ",
+                tag: "基本",
+                tagColor: "bg-cyan-500/20 text-cyan-300",
+                summary: "競艇予想の出発点は1コース選手の確認。良モーターを引いた1コース選手はほぼ鉄板。この組み合わせを軸にした買い方を解説。",
+                body: `全国平均で1コース選手の1着率は約55〜60%です。
+つまり何も考えなくても半分以上のレースで1コースが勝つわけです。
+
+そこに「良モーター（2連率40%以上）」が重なると：
+- 1着率は65〜70%以上に跳ね上がります
+- 配当は低くなりますが、1着固定フォーメーションで点数を絞れば回収率が上がります
+
+◆ 実践的な使い方
+① 出走表で1コース選手のモーター2連率を確認
+② 40%以上なら1コース1着固定フォーメーション
+③ 2・3着は2〜4コースの中からA1選手を選ぶ
+
+これだけで「なんとなく買う」よりはるかに合理的な予想になります。
+
+◆ 狙い目の場
+大村（1コース勝率65%超）・常滑・津は特に1コースが強い。
+逆に戸田・平和島は荒れやすく、1コース頼みは禁物。`,
+              },
+              {
+                title: "展示タイムの読み方：ここを見るだけで当たりが変わる",
+                tag: "データ",
+                tagColor: "bg-blue-500/20 text-blue-300",
+                summary: "本番直前の展示走行タイムは予想の精度を大きく左右する。見るべき数字と解釈の仕方をわかりやすく解説。",
+                body: `展示タイムは本番前の練習走行を計測したタイムです。
+数字が小さいほど速く、モーターの調子が良い証拠です。
+
+◆ 展示タイムの目安（直線タイム）
+- 6.7秒以下：超優秀モーター
+- 6.8〜6.9秒：良好
+- 7.0〜7.1秒：普通
+- 7.2秒以上：要注意（調子が悪い可能性）
+
+ただし、展示タイムだけで判断するのは危険です。
+
+◆ セットで確認すること
+① 展示ターン：ターン時の安定感・膨らみの有無
+② スタートタイム：0.10〜0.18秒が理想。0.20以上はスロースタートの傾向
+③ 前走成績：モーター替わりの有無、エンジン整備の内容
+
+展示タイムが全選手の中で1番速い選手は「展示1位」と呼ばれ、
+当日のトップフォーム選手として注目されます。
+
+これを1コース選手以外が取っている場合、荒れるサインになります。`,
+              },
+              {
+                title: "競艇で荒れやすいレースを見分ける5つの条件",
+                tag: "穴狙い",
+                tagColor: "bg-red-500/20 text-red-300",
+                summary: "高配当を狙うなら「荒れる条件」を知ることが先決。1コース以外が来やすい状況をデータから読み解く。",
+                body: `競艇は「1コースが来ない」＝荒れるサイン。
+以下の条件が重なるほど高配当が出やすくなります。
+
+◆ 荒れやすい条件5つ
+① 1コース選手のモーター2連率が30%以下
+  → 良いモーターが他のコースに集中している
+② 1コース選手がB級（B1・B2）の格下選手
+  → 格上の外コース選手に捲られやすい
+③ 強風・波浪条件のとき
+  → 技術力が高い選手が外コースから来やすい
+④ 1コース選手のスタートタイムが0.25秒以上
+  → スロースタートになりやすく、インの優位が消える
+⑤ SG・G1などグレードが高いレース
+  → 全選手がA1クラス以上で、格差が少ない
+
+◆ 荒れるときの買い方
+- 3連単で2〜4コースの選手を1着に置く
+- 「2-1-3」「3-1-2」などの準人気ライン
+- ボックスより1着固定フォーメーションの方がコスパ良い
+
+荒れるかどうかの判断が正確になるほど、穴馬券の期待値が上がります。`,
+              },
+              {
+                title: "「場のクセ」を覚えると予想の精度が劇的に上がる",
+                tag: "上級",
+                tagColor: "bg-purple-500/20 text-purple-300",
+                summary: "全国24場それぞれに「クセ」がある。1コース有利な場・荒れやすい場・特定コースが強い場を覚えることが予想の近道。",
+                body: `競艇は全国24場すべてでコースの癖が異なります。
+この「場のクセ」を知るだけで予想精度が大幅に上がります。
+
+◆ 1コース超強い（1着率60%以上）
+大村・常滑・津・蒲郡
+→ 1コース信頼で軸にする
+
+◆ 荒れやすい（外コースが来やすい）
+戸田・平和島・江戸川・多摩川
+→ 1コース固定買いは危険。外から高配当を狙う
+
+◆ 2コースが強い場
+桐生・若松・芦屋
+→ 1〜2コースのワンツーが多い。差しが出やすい
+
+◆ 海水面（うねりが出やすい）
+住之江・蒲郡・丸亀・多摩川
+→ 天候・風向きによって大きくレース傾向が変わる
+
+◆ 覚え方のコツ
+最初は自分がよく予想する場を2〜3か所に絞り、
+そこのデータを徹底的に記憶する方が効率的です。
+
+「特定の場のスペシャリスト」として予想精度を高め、
+合格した後で対象の場を広げていく方法が最も成功しやすいです。`,
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Q&A */}
+      <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl font-black text-white mb-6">❓ 競艇 よくある質問</h2>
           <GenreQA items={qa} accentColor="text-cyan-400" />
+        </div>
+      </section>
+
+      {/* 舟券計算機 */}
+      <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <KyoteiCalculator />
         </div>
       </section>
 

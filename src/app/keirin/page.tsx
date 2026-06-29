@@ -5,12 +5,22 @@ import AffiliateSection from "@/components/AffiliateSection";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import KeirinClient from "./KeirinClient";
+import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import BetCalculator from "@/components/BetCalculator";
+import StrategyGuide from "@/components/StrategyGuide";
 
 export const metadata: Metadata = {
   title: "競輪予想・データ分析",
   description:
-    "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。",
-  keywords: ["競輪予想", "競輪データ", "KEIRIN", "G1", "KEIRINグランプリ", "競輪攻略"],
+    "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。SS選手ランキング・ケイリングランプリ情報も掲載。",
+  keywords: ["競輪予想", "競輪データ", "KEIRIN", "G1", "KEIRINグランプリ", "競輪攻略", "競輪無料予想", "SS選手"],
+  alternates: { canonical: "https://koueigyannburu.vercel.app/keirin" },
+  openGraph: {
+    title: "競輪予想・データ分析 | WINLAB",
+    description: "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。",
+    url: "https://koueigyannburu.vercel.app/keirin",
+    type: "website",
+  },
 };
 
 const kettei = [
@@ -108,6 +118,12 @@ const qa = [
 export default function KeirinPage() {
   return (
     <div>
+      <WebPageJsonLd
+        name="競輪予想・データ分析 | WINLAB"
+        description="競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。"
+        url="https://koueigyannburu.vercel.app/keirin"
+      />
+      <FaqJsonLd items={qa} />
       {/* ヒーロー */}
       <section className="relative bg-gradient-to-br from-blue-950 to-[#08080f] py-16 px-4 border-b border-white/10">
         <div className="max-w-5xl mx-auto">
@@ -163,6 +179,101 @@ export default function KeirinPage() {
         </div>
       </section>
 
+      {/* 攻略コラム */}
+      <section className="py-12 px-4">
+        <div className="max-w-5xl mx-auto">
+          <StrategyGuide
+            title="📖 競輪攻略コラム"
+            accentColor="text-blue-400"
+            articles={[
+              {
+                title: "ライン戦術を読めば競輪の8割がわかる",
+                tag: "基本",
+                tagColor: "bg-blue-500/20 text-blue-300",
+                summary: "競輪予想の核心はライン（地域連携）の読み方。どのラインが有利か、誰が番手か、展開はどうなるかを解説。",
+                body: `競輪はチーム戦。同じ地域の選手が「ライン」を組んで連携します。
+
+◆ ラインの基本構造
+先行選手（前）- 番手選手（2番目）- 3番手選手（後ろ）
+
+先行選手は風を切って前を走り、番手・3番手選手を有利にします。
+その見返りとして、番手選手が終盤に先行選手の後ろから差して1着を狙います。
+
+◆ 予想への活かし方
+① ラインの強さを比較する
+ - 3名のライン vs 2名のライン vs 単騎：3名ラインが有利
+ - 先行選手の格（SS・S1・S2）が高いラインが有利
+② 番手選手の「決まり手」を確認
+ - 差しが多い番手選手 → 先行選手との連系が強い
+ - 追込が多い → 後方から来ることが多い
+③ ライン切れを見極める
+ - 番手選手が動いた場合や展開が崩れた場合は荒れる可能性大
+
+◆ 実践的な買い方
+安定して稼ぐなら「強いライン内の1-2着固定」。
+高配当を狙うなら「ライン崩壊 or 単騎選手が絡む」展開に期待する。`,
+              },
+              {
+                title: "KEIRINグランプリの攻略法：年末最高峰の一戦の見方",
+                tag: "SGレース",
+                tagColor: "bg-red-500/20 text-red-300",
+                summary: "競輪最高峰「KEIRINグランプリ」は毎年12月30日に立川競輪場で開催。9名のトップ選手が激突するこのレースの特徴と予想のポイントを解説。",
+                body: `KEIRINグランプリ（KGP）は年間最高賞金3億円以上を誇る競輪最大のレース。
+年間賞金上位9名と各グレードレース優勝者が参戦します。
+
+◆ KGPの特徴
+・全員がSS〜S1の実力者で、実力差が小さい
+・全国から集まるため「ライン」が組みにくい単騎も多い
+・単騎選手が中心に絡むことが多く、荒れやすい傾向
+
+◆ 予想のポイント
+① 単騎選手の実力と脚質を徹底チェック
+ - 単騎でも勝てる「自力型」が荒らすことが多い
+② 2選手の連携ラインを確認
+ - 2名ラインが3名ラインに絡む展開が定番
+③ 枠番・スタート位置
+ - インを狙える選手がラインの先頭に立てるかが鍵
+
+過去の優勝者：
+2023年 古性優作（近畿）
+2022年 古性優作（2連覇）
+2021年 脇本雄太（北日本）
+
+脇本・古性の2強が台頭しているが、毎年サプライズが起きるのがKGPの魅力。`,
+              },
+              {
+                title: "バンク（競走路）別の攻略ポイント",
+                tag: "場別",
+                tagColor: "bg-amber-500/20 text-amber-300",
+                summary: "競輪場によってバンクの周長・カントが異なり、有利な脚質が変わる。代表的な競輪場の特性をまとめて解説。",
+                body: `競輪場のバンク（走路）は場所によって特性が異なります。
+主な違いは「周長（1周の長さ）」と「カント（バンクの傾き）」です。
+
+◆ 短走路（333m）：急カーブ・カント大
+ → 捲りが出にくい、逃げ・差しが有利
+ 場所例：函館・松山・川崎
+
+◆ 標準走路（400m）：バランス型
+ → どの脚質も出やすい、最も多いタイプ
+ 場所例：平塚・松戸・岐阜
+
+◆ 長走路（500m）：緩やかなカーブ
+ → 捲りが出やすい、スピード型の選手に有利
+ 場所例：大垣・弥彦
+
+◆ 実践への活かし方
+① 捲りが得意な選手 × 長走路 → 信頼度UP
+② 逃げが得意な選手 × 短走路 → 逃げ切りやすい
+③ カントが高い場 → 差しが遅れやすい（外から追い込みにくい）
+
+この情報を頭に入れると、同じ選手でも場所によって
+「買える/買えない」の判断が変わります。`,
+              },
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Q&A */}
       <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-5xl mx-auto">
@@ -173,6 +284,13 @@ export default function KeirinPage() {
 
       {/* 関連記事 */}
       <RelatedArticles articles={relatedArticles} title="📚 競輪攻略コンテンツ" />
+
+      {/* 車券計算機 */}
+      <section className="py-12 px-4 bg-[#0f0f1a]">
+        <div className="max-w-2xl mx-auto">
+          <BetCalculator />
+        </div>
+      </section>
 
       <AffiliateSection genre="競輪" />
     </div>

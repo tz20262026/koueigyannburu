@@ -1,5 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-
 interface AffiliateSectionProps {
   genre?: string;
 }
@@ -7,52 +5,54 @@ interface AffiliateSectionProps {
 const services = [
   {
     rank: 1,
-    name: "競馬予想サービスA",
-    genre: "競馬",
-    feature: "的中率No.1",
+    name: "電話占いComet",
+    desc: "全占い師と初回5分無料！",
+    feature: "当たる占い師が多数在籍・恋愛・仕事・運勢",
     color: "from-yellow-600 to-amber-500",
-    badge: "🏆 圧倒的人気",
+    badge: "🏆 EPC高",
+    href: "https://px.a8.net/svt/ejp?a8mat=4B5RS6+FPLTGY+48YY+5YJRM",
+    imgTrack: "https://www18.a8.net/0.gif?a8mat=4B5RS6+FPLTGY+48YY+5YJRM",
   },
   {
     rank: 2,
-    name: "競艇予想サービスB",
-    genre: "競艇",
-    feature: "無料予想あり",
+    name: "電話占いAlice",
+    desc: "5分無料で有名鑑定師に相談",
+    feature: "人気鑑定師多数・恋愛・復縁・仕事運",
     color: "from-blue-600 to-cyan-500",
-    badge: "🆓 無料お試し",
+    badge: "🆓 初回無料",
+    href: "https://px.a8.net/svt/ejp?a8mat=4B5RS6+FTRUPE+48YY+NTJWY",
+    imgTrack: "https://www10.a8.net/0.gif?a8mat=4B5RS6+FTRUPE+48YY+NTJWY",
   },
   {
     rank: 3,
-    name: "競輪予想サービスC",
-    genre: "競輪",
-    feature: "初心者向け解説",
+    name: "電話占いATLANTIS",
+    desc: "初指名無料・的中率の高さで話題",
+    feature: "至福の鑑定・占い師も憧れる高品質サロン",
     color: "from-emerald-600 to-green-500",
-    badge: "👶 初心者向け",
+    badge: "⭐ 人気急上昇",
+    href: "https://px.a8.net/svt/ejp?a8mat=4B5RS6+FUYPWY+48YY+BWVTE",
+    imgTrack: "https://www10.a8.net/0.gif?a8mat=4B5RS6+FUYPWY+48YY+BWVTE",
   },
 ];
 
-export default function AffiliateSection({ genre }: AffiliateSectionProps) {
-  const filtered = genre
-    ? services.filter((s) => s.genre === genre || !genre)
-    : services;
-
+export default function AffiliateSection({ genre: _genre }: AffiliateSectionProps) {
   return (
     <section className="py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <Badge className="bg-[#d4af37]/20 text-[#d4af37] border-[#d4af37]/30 mb-3">
+          <span className="inline-block bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30 rounded-full px-3 py-1 text-xs font-semibold mb-3">
             PR・広告
-          </Badge>
+          </span>
           <h2 className="text-2xl font-bold text-white">
-            おすすめ予想サービス
+            おすすめサービス
           </h2>
           <p className="text-gray-400 text-sm mt-2">
-            プロが監修した高精度予想サービスを厳選紹介
+            運気・相性・勝負運を占いでチェック！
           </p>
         </div>
 
         <div className="space-y-4">
-          {filtered.map((service) => (
+          {services.map((service) => (
             <div
               key={service.rank}
               className="relative rounded-xl border border-white/10 bg-[#0f0f1a] overflow-hidden hover:border-[#d4af37]/40 transition-all group"
@@ -65,19 +65,24 @@ export default function AffiliateSection({ genre }: AffiliateSectionProps) {
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="font-bold text-white">{service.name}</span>
-                    <Badge className="bg-white/10 text-gray-300 border-0 text-xs">
+                    <span className="bg-white/10 text-gray-300 rounded-full px-2 py-0.5 text-xs">
                       {service.badge}
-                    </Badge>
+                    </span>
                   </div>
-                  <p className="text-gray-400 text-sm">{service.feature}</p>
+                  <p className="text-gray-300 text-sm font-medium">{service.desc}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">{service.feature}</p>
                 </div>
                 <a
-                  href="#"
+                  href={service.href}
+                  rel="nofollow"
+                  target="_blank"
                   className={`shrink-0 px-4 py-2 rounded-lg bg-gradient-to-r ${service.color} text-white font-bold text-sm hover:opacity-90 transition-opacity`}
                 >
                   詳細を見る
                 </a>
               </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img width={1} height={1} src={service.imgTrack} alt="" style={{ display: 'none' }} />
             </div>
           ))}
         </div>
