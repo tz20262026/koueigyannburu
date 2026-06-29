@@ -25,12 +25,28 @@ export const metadata: Metadata = {
 
 const relatedArticles = [
   {
-    href: "/keiba",
+    href: "/articles/keiba-beginner-terms",
     title: "競馬初心者が最初に覚えるべき5つの基本用語",
     desc: "単勝・複勝・馬連・馬単・3連複の違いを図解でわかりやすく解説",
     tag: "初心者",
     tagColor: "bg-emerald-500/20 text-emerald-300",
     time: "5分で読める",
+  },
+  {
+    href: "/articles/keiba-odds-guide",
+    title: "オッズの読み方と期待値計算の基本",
+    desc: "オッズから回収率を計算する方法。長期的に勝つための数字の見方",
+    tag: "データ分析",
+    tagColor: "bg-amber-500/20 text-amber-300",
+    time: "8分で読める",
+  },
+  {
+    href: "/articles/keiba-kishu-ranking",
+    title: "騎手成績ランキングから軸馬を選ぶ方法",
+    desc: "勝利数・勝率・回収率の3指標で騎手を評価する実践的手法",
+    tag: "攻略",
+    tagColor: "bg-red-500/20 text-red-300",
+    time: "6分で読める",
   },
   {
     href: "/keiba",
@@ -39,22 +55,6 @@ const relatedArticles = [
     tag: "基礎知識",
     tagColor: "bg-blue-500/20 text-blue-300",
     time: "7分で読める",
-  },
-  {
-    href: "/keiba",
-    title: "オッズの読み方と期待値計算の基本",
-    desc: "オッズから回収率を計算する方法。長期的に勝つための数字の見方",
-    tag: "データ分析",
-    tagColor: "bg-amber-500/20 text-amber-300",
-    time: "8分で読める",
-  },
-  {
-    href: "/keiba",
-    title: "騎手成績ランキングから軸馬を選ぶ方法",
-    desc: "勝利数・勝率・回収率の3指標で騎手を評価する実践的手法",
-    tag: "攻略",
-    tagColor: "bg-red-500/20 text-red-300",
-    time: "6分で読める",
   },
   {
     href: "/keiba",

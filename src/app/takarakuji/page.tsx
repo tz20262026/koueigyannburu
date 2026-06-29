@@ -110,11 +110,19 @@ const hotNumbers = {
 
 const relatedArticles = [
   {
-    href: "/takarakuji",
-    title: "ロト6の当選確率と全等級の賞金を解説",
-    desc: "1等から6等まで全等級の当選確率・賞金・当選本数をわかりやすく解説",
-    tag: "基礎知識",
+    href: "/articles/takarakuji-loto6-hot",
+    title: "ロト6ホット数字分析：よく出る数字と買い方",
+    desc: "直近300回の当選データから出現頻度を分析。ホット数字・コールド数字の実態を解説",
+    tag: "データ分析",
     tagColor: "bg-amber-500/20 text-amber-300",
+    time: "6分で読める",
+  },
+  {
+    href: "/articles/takarakuji-compare",
+    title: "宝くじ・ロト6・ロト7・ミニロトを徹底比較",
+    desc: "当選確率・賞金・購入金額・抽選頻度を比較して自分に合った選び方を解説",
+    tag: "比較",
+    tagColor: "bg-purple-500/20 text-purple-300",
     time: "5分で読める",
   },
   {
@@ -122,16 +130,8 @@ const relatedArticles = [
     title: "キャリーオーバーを狙え！発生条件と買い時",
     desc: "1等が出なかった時のキャリーオーバー積み上げ額の見方と購入戦略",
     tag: "戦略",
-    tagColor: "bg-purple-500/20 text-purple-300",
-    time: "6分で読める",
-  },
-  {
-    href: "/takarakuji",
-    title: "ロト7とロト6、どちらが得？期待値比較",
-    desc: "価格・当選確率・賞金を比較。どちらを買うべきかを数字で判断",
-    tag: "比較",
     tagColor: "bg-blue-500/20 text-blue-300",
-    time: "4分で読める",
+    time: "6分で読める",
   },
   {
     href: "/takarakuji",

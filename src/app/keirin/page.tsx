@@ -43,20 +43,20 @@ const lineStrategy = [
 
 const relatedArticles = [
   {
-    href: "/keirin",
-    title: "競輪のライン戦術を完全理解する",
-    desc: "地域ラインとは何か？連携・切り・捲りの展開を読む基本戦術",
-    tag: "戦術",
+    href: "/articles/keirin-line-guide",
+    title: "競輪ライン戦術入門：初心者が最初に覚えること",
+    desc: "ライン（連携戦術）を理解するだけで予想精度が劇的に向上する",
+    tag: "入門",
     tagColor: "bg-blue-500/20 text-blue-300",
-    time: "8分で読める",
+    time: "7分で読める",
   },
   {
-    href: "/keirin",
-    title: "SSランクとS1・A1クラスの違いを解説",
-    desc: "競輪選手のクラス分けの仕組みと各クラスのレースへの影響",
-    tag: "基礎知識",
+    href: "/articles/keirin-ss-player",
+    title: "競輪SS選手の成績と狙い方",
+    desc: "SSランクの意味・バンク別成績・ライン戦術との組み合わせを解説",
+    tag: "選手データ",
     tagColor: "bg-cyan-500/20 text-cyan-300",
-    time: "5分で読める",
+    time: "6分で読める",
   },
   {
     href: "/keirin",

@@ -42,20 +42,20 @@ const points = [
 
 const relatedArticles = [
   {
+    href: "/articles/autorace-engine",
+    title: "オートレース機力（エンジン）の見方と狙い方",
+    desc: "試走タイムの読み方・エンジン成績・気象条件との関係を徹底解説",
+    tag: "予想ポイント",
+    tagColor: "bg-orange-500/20 text-orange-300",
+    time: "6分で読める",
+  },
+  {
     href: "/autorace",
     title: "オートレース完全入門：基本ルールと賭け方",
     desc: "オートレースの仕組み・車券の種類・購入方法を初心者向けに解説",
     tag: "初心者",
-    tagColor: "bg-orange-500/20 text-orange-300",
-    time: "8分で読める",
-  },
-  {
-    href: "/autorace",
-    title: "エンジン（機力）の見方と選手への影響",
-    desc: "オートレースはエンジン8割・選手2割。試走タイムの読み方を解説",
-    tag: "分析",
     tagColor: "bg-amber-500/20 text-amber-300",
-    time: "6分で読める",
+    time: "8分で読める",
   },
   {
     href: "/autorace",

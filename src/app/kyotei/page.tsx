@@ -43,20 +43,20 @@ const tips = [
 
 const relatedArticles = [
   {
-    href: "/kyotei",
-    title: "競艇（ボートレース）完全入門ガイド",
-    desc: "競艇の基本ルール・舟券の種類・買い方まで初心者向けに徹底解説",
-    tag: "初心者",
+    href: "/articles/kyotei-1course",
+    title: "競艇1コース勝率の完全ガイド",
+    desc: "全24場の1コース勝率データ・季節条件・効果的な馬券の組み方まで解説",
+    tag: "基礎知識",
     tagColor: "bg-cyan-500/20 text-cyan-300",
-    time: "10分で読める",
+    time: "7分で読める",
   },
   {
-    href: "/kyotei",
-    title: "1コース圧倒的有利の理由とは？",
-    desc: "スタートの有利不利・コース取りの仕組みを図解で完全解説",
-    tag: "基礎知識",
+    href: "/articles/kyotei-a1-players",
+    title: "競艇A1選手ランキングの見方と狙い方",
+    desc: "A1・A2・B1・B2の違い、選手ランキング確認方法、A1選手を軸にした戦略",
+    tag: "選手データ",
     tagColor: "bg-blue-500/20 text-blue-300",
-    time: "6分で読める",
+    time: "5分で読める",
   },
   {
     href: "/kyotei",
