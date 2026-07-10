@@ -6,6 +6,7 @@ const links = [
   { href: "/kyotei", label: "競艇" },
   { href: "/autorace", label: "オートレース" },
   { href: "/takarakuji", label: "宝くじ・LOTO" },
+  { href: "/articles", label: "攻略記事一覧" },
 ];
 
 export default function Footer() {
@@ -18,7 +19,7 @@ export default function Footer() {
               <span className="text-[#d4af37]">WIN</span>
               <span className="text-white">LAB</span>
             </span>
-            <p className="mt-3 text-gray-400 text-sm">
+            <p className="mt-3 text-gray-300 text-sm">
               公営ギャンブル予想・データ分析の決定版。<br />
               競馬・競輪・競艇・オートレース・宝くじを徹底解説。
             </p>
@@ -29,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 hover:text-[#d4af37] text-sm transition-colors">
+                  <Link href={link.href} className="text-gray-300 hover:text-[#d4af37] text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -39,7 +40,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-white font-semibold mb-4">注意事項</h3>
-            <p className="text-gray-500 text-xs leading-relaxed">
+            <p className="text-gray-300 text-xs leading-relaxed">
               当サイトの情報は参考目的です。ギャンブルは節度を守って楽しみましょう。
               18歳未満の方は公営ギャンブルに参加できません。
               依存症が心配な方は相談窓口（ギャンブル等依存症相談コールセンター）へ。
@@ -47,10 +48,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center">
-          <p className="text-gray-600 text-sm">
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+          <p className="text-gray-300 text-sm">
             © 2026 WINLAB. All Rights Reserved.
           </p>
+          <Link href="/privacy" className="text-gray-300 hover:text-[#d4af37] text-sm transition-colors">
+            プライバシーポリシー・免責事項
+          </Link>
         </div>
       </div>
     </footer>

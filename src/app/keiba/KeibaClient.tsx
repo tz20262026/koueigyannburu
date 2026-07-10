@@ -75,7 +75,7 @@ function OddsTable({ data }: { data: typeof jraOdds }) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[500px]">
           <thead>
-            <tr className="border-b border-white/10 text-gray-400 text-sm">
+            <tr className="border-b border-white/10 text-gray-300 text-sm">
               <th className="pb-3 text-left pl-4">人気</th>
               <th className="pb-3 text-left">馬名</th>
               <th className="pb-3 text-left">騎手</th>
@@ -93,9 +93,9 @@ function OddsTable({ data }: { data: typeof jraOdds }) {
                 </td>
                 <td className="py-3">
                   <span className="text-white font-bold">{horse.name}</span>
-                  <span className="ml-2 text-xs text-gray-500">({horse.bracket}番)</span>
+                  <span className="ml-2 text-xs text-gray-300">({horse.bracket}番)</span>
                 </td>
-                <td className="py-3 text-gray-400 text-sm">{horse.jockey}</td>
+                <td className="py-3 text-gray-300 text-sm">{horse.jockey}</td>
                 <td className="py-3 text-right text-[#d4af37] font-black">{horse.odds}倍</td>
                 <td className="py-3 pr-4 text-right text-gray-300">{horse.win}</td>
               </tr>
@@ -128,7 +128,7 @@ function TrackTable() {
           <Card key={t.track} className="bg-[#0f0f1a] border-white/10">
             <CardHeader className="pb-2">
               <CardTitle className="text-white text-lg font-black">{t.track}競馬場</CardTitle>
-              <p className="text-gray-400 text-xs">{t.feature}</p>
+              <p className="text-gray-300 text-xs">{t.feature}</p>
             </CardHeader>
             <CardContent className="space-y-2">
               <Badge className="bg-emerald-500/20 text-emerald-300 border-0 text-xs">{t.tendency}</Badge>
@@ -181,7 +181,7 @@ export default function KeibaClient() {
                           {g.grade}
                         </Badge>
                         <div className="text-white font-black">{g.name}</div>
-                        <div className="text-gray-400 text-xs mt-1">{g.track} · {g.date}</div>
+                        <div className="text-gray-300 text-xs mt-1">{g.track} · {g.date}</div>
                         <div className="text-[#d4af37] text-sm font-bold mt-1">{g.prize}</div>
                       </div>
                     ))}
@@ -205,7 +205,7 @@ export default function KeibaClient() {
                       <div key={g.name} className="p-4 rounded-xl border border-emerald-700/30 bg-gradient-to-br from-emerald-900/20 to-[#0f0f1a]">
                         <Badge className="bg-amber-500/20 text-amber-300 border-amber-500/30 text-xs mb-2">{g.grade}</Badge>
                         <div className="text-white font-black">{g.name}</div>
-                        <div className="text-gray-400 text-xs mt-1">{g.track} · {g.date}</div>
+                        <div className="text-gray-300 text-xs mt-1">{g.track} · {g.date}</div>
                         <div className="text-[#d4af37] text-sm font-bold mt-1">{g.prize}</div>
                       </div>
                     ))}
@@ -238,7 +238,7 @@ export default function KeibaClient() {
               <div key={p.title} className="p-4 rounded-xl border border-white/10 bg-[#0f0f1a] hover:border-emerald-700/40 transition-all">
                 <div className="text-2xl mb-2">{p.icon}</div>
                 <h3 className="text-white font-bold text-sm mb-1">{p.title}</h3>
-                <p className="text-gray-500 text-xs">{p.desc}</p>
+                <p className="text-gray-300 text-xs">{p.desc}</p>
               </div>
             ))}
           </div>

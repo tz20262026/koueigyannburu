@@ -110,7 +110,7 @@ const pickups = [
     tagColor: "bg-cyan-500/20 text-cyan-300",
   },
   {
-    href: "/takarakuji",
+    href: "/articles/takarakuji-loto6-hot",
     icon: "🎯",
     title: "【ロト6】直近300回のホット数字・コールド数字分析",
     desc: "出現頻度が高い数字と低い数字を徹底分析。次回購入の参考データを公開",
@@ -137,7 +137,7 @@ const pickups = [
     tagColor: "bg-orange-500/20 text-orange-300",
   },
   {
-    href: "/keiba",
+    href: "/articles/keiba-odds-guide",
     icon: "📊",
     title: "【データ】回収率100%超えを狙う馬券戦略",
     desc: "人気薄の複勝・ワイドで長期収支をプラスにする考え方を解説",
@@ -191,7 +191,7 @@ export default function HomePage() {
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className="text-2xl sm:text-3xl font-black text-[#d4af37]">{stat.value}</div>
-              <div className="text-gray-400 text-sm mt-1">{stat.label}</div>
+              <div className="text-gray-300 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -202,7 +202,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-black text-white mb-3">ジャンルを選んで予想開始</h2>
-            <p className="text-gray-400">全5ジャンルのデータ分析・予想情報をチェック</p>
+            <p className="text-gray-300">全5ジャンルのデータ分析・予想情報をチェック</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -215,11 +215,11 @@ export default function HomePage() {
                       <Badge className={`${genre.badgeColor} border text-xs`}>{genre.badge}</Badge>
                     </div>
                     <h3 className="text-xl font-black text-white mb-0.5">{genre.label}</h3>
-                    <p className="text-gray-500 text-xs mb-2">{genre.sub}</p>
-                    <p className="text-gray-400 text-sm mb-3">{genre.desc}</p>
+                    <p className="text-gray-300 text-xs mb-2">{genre.sub}</p>
+                    <p className="text-gray-300 text-sm mb-3">{genre.desc}</p>
                     <div className="flex flex-wrap gap-1">
                       {genre.links.map((l) => (
-                        <span key={l} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-gray-400 border border-white/10">
+                        <span key={l} className="text-xs px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
                           {l}
                         </span>
                       ))}
@@ -254,7 +254,7 @@ export default function HomePage() {
                     {race.time}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs text-gray-500 mb-0.5">{race.genre}</div>
+                    <div className="text-xs text-gray-300 mb-0.5">{race.genre}</div>
                     <div className="text-white font-bold text-sm truncate">{race.name}</div>
                   </div>
                   <Badge className={`${race.statusColor} border-0 text-xs shrink-0`}>{race.status}</Badge>
@@ -262,7 +262,7 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <p className="text-center text-gray-600 text-xs mt-4">※最新の開催情報はJRA・各競技公式サイトでご確認ください</p>
+          <p className="text-center text-gray-300 text-xs mt-4">※最新の開催情報はJRA・各競技公式サイトでご確認ください</p>
         </div>
       </section>
 
@@ -271,7 +271,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-black text-white">📰 今日のピックアップ</h2>
-            <span className="text-gray-500 text-sm">全ジャンルの最新情報</span>
+            <span className="text-gray-300 text-sm">全ジャンルの最新情報</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -285,7 +285,7 @@ export default function HomePage() {
                   <h3 className="text-white font-bold text-sm mb-2 group-hover:text-[#d4af37] transition-colors">
                     {p.title}
                   </h3>
-                  <p className="text-gray-500 text-xs leading-relaxed">{p.desc}</p>
+                  <p className="text-gray-300 text-xs leading-relaxed">{p.desc}</p>
                   <div className="mt-3 flex items-center gap-1 text-[#d4af37] text-xs">
                     <span>続きを読む</span>
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,7 +304,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-black text-white mb-1">🎲 無料ツール・ゲーム</h2>
-            <p className="text-gray-500 text-sm">予想に役立つ計算機・ゲームを使ってみよう</p>
+            <p className="text-gray-300 text-sm">予想に役立つ計算機・ゲームを使ってみよう</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-1">
@@ -319,7 +319,7 @@ export default function HomePage() {
                   <span className="text-2xl">🔮</span>
                   <div>
                     <h3 className="text-white font-black text-lg">今日のラッキーナンバー</h3>
-                    <p className="text-gray-500 text-xs">生年月日×今日の日付で算出</p>
+                    <p className="text-gray-300 text-xs">生年月日×今日の日付で算出</p>
                   </div>
                 </div>
                 <LuckyGame />
@@ -334,7 +334,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-black text-white mb-1">🧠 ギャンブル知識クイズ</h2>
-            <p className="text-gray-500 text-sm">全6問・あなたのギャンブル知識レベルをチェック！</p>
+            <p className="text-gray-300 text-sm">全6問・あなたのギャンブル知識レベルをチェック！</p>
           </div>
           <GamblingQuiz />
         </div>
@@ -478,7 +478,7 @@ JRA公式で過去10年分のレースデータを無料確認できる。
                 <div className={`text-center p-4 rounded-xl border ${g.border} bg-[#0f0f1a] hover:bg-[#1a1a2e] transition-all`}>
                   <div className="text-3xl mb-2">{g.icon}</div>
                   <div className="text-white font-bold text-sm">{g.label}</div>
-                  <div className="text-gray-500 text-xs mt-1">{g.sub}</div>
+                  <div className="text-gray-300 text-xs mt-1">{g.sub}</div>
                 </div>
               </Link>
             ))}

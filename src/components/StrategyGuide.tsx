@@ -42,7 +42,7 @@ export default function StrategyGuide({ title, articles, accentColor = "text-[#d
             </button>
             {openIdx === i && (
               <div className="px-5 pb-5 border-t border-white/5">
-                <p className="text-gray-400 text-sm mt-3 mb-3 leading-relaxed">{a.summary}</p>
+                <p className="text-gray-300 text-sm mt-3 mb-3 leading-relaxed">{a.summary}</p>
                 <div className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{a.body}</div>
               </div>
             )}

@@ -5,7 +5,7 @@ import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import TakarakujiClient from "./TakarakujiClient";
 import LotoNumberPicker from "@/components/LotoNumberPicker";
-import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { WebPageJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import StrategyGuide from "@/components/StrategyGuide";
 
 export const metadata: Metadata = {
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     description: "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。",
     url: "https://koueigyannburu.vercel.app/takarakuji",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "宝くじ・LOTO当選数字・確率データ | WINLAB",
+    description: "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。",
   },
 };
 
@@ -189,6 +194,12 @@ const qa = [
 export default function TakarakujiPage() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "トップ", url: "https://koueigyannburu.vercel.app" },
+          { name: "宝くじ・LOTO", url: "https://koueigyannburu.vercel.app/takarakuji" },
+        ]}
+      />
       <WebPageJsonLd
         name="宝くじ・LOTO当選数字・確率データ | WINLAB"
         description="ロト6・ロト7・ミニロト・ナンバーズの当選確率・出現傾向データを徹底分析。"
@@ -230,19 +241,19 @@ export default function TakarakujiPage() {
                   <h3 className="text-xl font-black text-white mb-3">{l.name}</h3>
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-gray-400">選び方</span>
+                      <span className="text-gray-300">選び方</span>
                       <span className="text-gray-200">{l.rule}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">1等確率</span>
+                      <span className="text-gray-300">1等確率</span>
                       <span className="text-[#d4af37] font-bold">{l.odds}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">価格</span>
+                      <span className="text-gray-300">価格</span>
                       <span className="text-gray-200">{l.price}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-400">抽選</span>
+                      <span className="text-gray-300">抽選</span>
                       <span className="text-gray-200">{l.buy}</span>
                     </div>
                   </div>
@@ -269,7 +280,7 @@ export default function TakarakujiPage() {
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-lg ${i === 0 ? "bg-[#d4af37] text-black" : "bg-amber-500/20 text-amber-300"}`}>
                       {n.num}
                     </div>
-                    <div className="text-gray-500 text-xs mt-1">{n.count}回</div>
+                    <div className="text-gray-300 text-xs mt-1">{n.count}回</div>
                   </div>
                 ))}
               </div>
@@ -285,13 +296,13 @@ export default function TakarakujiPage() {
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-lg ${i === 0 ? "bg-[#d4af37] text-black" : "bg-purple-500/20 text-purple-300"}`}>
                       {n.num}
                     </div>
-                    <div className="text-gray-500 text-xs mt-1">{n.count}回</div>
+                    <div className="text-gray-300 text-xs mt-1">{n.count}回</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          <p className="text-gray-600 text-xs mt-6">※サンプルデータです。各回は独立試行のため必勝法はありません</p>
+          <p className="text-gray-300 text-xs mt-6">※サンプルデータです。各回は独立試行のため必勝法はありません</p>
         </div>
       </section>
 
@@ -446,7 +457,7 @@ export default function TakarakujiPage() {
             <h2 className="text-2xl font-black text-white">
               行列なしで縁起の良い売り場から購入代行
             </h2>
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-gray-300 text-sm mt-2">
               高額当選者輩出の有名売り場から自宅で注文できる購入代行サービス
             </p>
           </div>
@@ -502,7 +513,7 @@ export default function TakarakujiPage() {
               <img width={1} height={1} src="https://www13.a8.net/0.gif?a8mat=4B67CJ+2W6VN6+3A98+68EPE" alt="" style={{ display: 'none' }} />
             </div>
           </div>
-          <p className="text-center text-gray-600 text-xs mt-4">
+          <p className="text-center text-gray-300 text-xs mt-4">
             ※当サイトはアフィリエイト広告を利用しています
           </p>
         </div>
@@ -514,7 +525,7 @@ export default function TakarakujiPage() {
           <div className="p-8 rounded-2xl border border-[#d4af37]/30 bg-gradient-to-br from-[#d4af37]/10 to-purple-900/20">
             <div className="text-5xl mb-4">🌟</div>
             <h2 className="text-2xl font-black text-white mb-3">今すぐ購入して億万長者を目指す！</h2>
-            <p className="text-gray-400 mb-6">宝くじは全国の売り場・インターネットで購入可能</p>
+            <p className="text-gray-300 mb-6">宝くじは全国の売り場・インターネットで購入可能</p>
             <a
               href="https://www.takarakuji-official.jp/"
               target="_blank"
@@ -523,7 +534,7 @@ export default function TakarakujiPage() {
             >
               🎯 宝くじ公式サイト
             </a>
-            <p className="text-gray-600 text-xs mt-4">※購入は18歳以上の方を対象としています</p>
+            <p className="text-gray-300 text-xs mt-4">※購入は18歳以上の方を対象としています</p>
           </div>
         </div>
       </section>

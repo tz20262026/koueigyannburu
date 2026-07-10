@@ -37,7 +37,7 @@ const services = [
 
 export default function AffiliateSection({ genre: _genre }: AffiliateSectionProps) {
   return (
-    <section className="py-12 px-4">
+    <section id="recommend" className="py-12 px-4 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <span className="inline-block bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/30 rounded-full px-3 py-1 text-xs font-semibold mb-3">
@@ -46,7 +46,7 @@ export default function AffiliateSection({ genre: _genre }: AffiliateSectionProp
           <h2 className="text-2xl font-bold text-white">
             おすすめサービス
           </h2>
-          <p className="text-gray-400 text-sm mt-2">
+          <p className="text-gray-300 text-sm mt-2">
             運気・相性・勝負運を占いでチェック！
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function AffiliateSection({ genre: _genre }: AffiliateSectionProp
                     </span>
                   </div>
                   <p className="text-gray-300 text-sm font-medium">{service.desc}</p>
-                  <p className="text-gray-500 text-xs mt-0.5">{service.feature}</p>
+                  <p className="text-gray-300 text-xs mt-0.5">{service.feature}</p>
                 </div>
                 <a
                   href={service.href}
@@ -87,7 +87,7 @@ export default function AffiliateSection({ genre: _genre }: AffiliateSectionProp
           ))}
         </div>
 
-        <p className="text-center text-gray-600 text-xs mt-4">
+        <p className="text-center text-gray-300 text-xs mt-4">
           ※当サイトはアフィリエイト広告を利用しています
         </p>
       </div>

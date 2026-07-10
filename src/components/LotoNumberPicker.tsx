@@ -55,7 +55,7 @@ export default function LotoNumberPicker() {
         <span className="text-2xl">🎯</span>
         <div>
           <h3 className="text-white font-black text-lg">数字選択シミュレーター</h3>
-          <p className="text-gray-500 text-xs">自分で選ぶかクイックピックで自動選択</p>
+          <p className="text-gray-300 text-xs">自分で選ぶかクイックピックで自動選択</p>
         </div>
       </div>
 
@@ -65,7 +65,7 @@ export default function LotoNumberPicker() {
             key={t}
             onClick={() => handleTypeChange(t)}
             className={`flex-1 py-2 rounded-lg text-xs font-black transition-all ${
-              type === t ? `${lotoConfig[t].color} text-white` : "bg-white/5 text-gray-400"
+              type === t ? `${lotoConfig[t].color} text-white` : "bg-white/5 text-gray-300"
             }`}
           >
             {lotoConfig[t].label}
@@ -75,9 +75,9 @@ export default function LotoNumberPicker() {
 
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-gray-400 text-xs">選んだ数字（{selected.length}/{cfg.pick}個）</span>
+          <span className="text-gray-300 text-xs">選んだ数字（{selected.length}/{cfg.pick}個）</span>
           {selected.length > 0 && (
-            <button onClick={reset} className="text-gray-600 text-xs hover:text-gray-400">クリア</button>
+            <button onClick={reset} className="text-gray-300 text-xs hover:text-white">クリア</button>
           )}
         </div>
         <div className="flex flex-wrap gap-2 min-h-[48px] p-3 rounded-xl bg-black/30 border border-white/10">
@@ -86,7 +86,7 @@ export default function LotoNumberPicker() {
               {n}
             </span>
           ))}
-          {selected.length === 0 && <span className="text-gray-600 text-sm">下の数字をタップして選択</span>}
+          {selected.length === 0 && <span className="text-gray-300 text-sm">下の数字をタップして選択</span>}
         </div>
       </div>
 
@@ -120,7 +120,7 @@ export default function LotoNumberPicker() {
 
       {quick && (
         <div className="mt-4 p-4 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 text-center">
-          <p className="text-gray-400 text-xs mb-2">クイックピック結果</p>
+          <p className="text-gray-300 text-xs mb-2">クイックピック結果</p>
           <div className="flex justify-center flex-wrap gap-2">
             {quick.map((n) => (
               <span key={n} className="w-11 h-11 rounded-full bg-[#d4af37] text-black font-black flex items-center justify-center text-sm">
@@ -128,7 +128,7 @@ export default function LotoNumberPicker() {
               </span>
             ))}
           </div>
-          <p className="text-gray-600 text-xs mt-3">※当選を保証するものではありません</p>
+          <p className="text-gray-300 text-xs mt-3">※当選を保証するものではありません</p>
         </div>
       )}
     </div>

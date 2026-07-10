@@ -10,6 +10,7 @@ const navItems = [
   { href: "/kyotei", label: "競艇", icon: "⛵", color: "text-cyan-400" },
   { href: "/autorace", label: "オートレース", icon: "🏎️", color: "text-orange-400" },
   { href: "/takarakuji", label: "宝くじ・LOTO", icon: "🎯", color: "text-purple-400" },
+  { href: "/articles", label: "攻略記事", icon: "📚", color: "text-amber-300" },
 ];
 
 export default function Header() {

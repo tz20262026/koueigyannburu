@@ -43,7 +43,7 @@ function StadiumTable({ data }: { data: typeof eastStadiums }) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[450px]">
           <thead>
-            <tr className="border-b border-white/10 text-gray-400 text-sm">
+            <tr className="border-b border-white/10 text-gray-300 text-sm">
               <th className="pb-3 text-left pl-4">競艇場</th>
               <th className="pb-3 text-center">地域</th>
               <th className="pb-3 text-center hidden sm:table-cell">水面特徴</th>
@@ -55,14 +55,14 @@ function StadiumTable({ data }: { data: typeof eastStadiums }) {
             {visible.map((s) => (
               <tr key={s.name} className="hover:bg-white/3 transition-colors">
                 <td className="py-3 pl-4 text-white font-bold">{s.name}</td>
-                <td className="py-3 text-center text-gray-400 text-sm">{s.region}</td>
-                <td className="py-3 text-center text-gray-400 text-xs hidden sm:table-cell">{s.feature}</td>
+                <td className="py-3 text-center text-gray-300 text-sm">{s.region}</td>
+                <td className="py-3 text-center text-gray-300 text-xs hidden sm:table-cell">{s.feature}</td>
                 <td className="py-3 text-right">
                   <span className={`font-black ${parseInt(s.course1) >= 60 ? "text-[#d4af37]" : parseInt(s.course1) >= 54 ? "text-cyan-400" : parseInt(s.course1) >= 50 ? "text-gray-300" : "text-orange-400"}`}>
                     {s.course1}
                   </span>
                 </td>
-                <td className="py-3 pr-4 text-right text-gray-500 text-xs hidden sm:table-cell">{s.note}</td>
+                <td className="py-3 pr-4 text-right text-gray-300 text-xs hidden sm:table-cell">{s.note}</td>
               </tr>
             ))}
           </tbody>
@@ -87,7 +87,7 @@ export default function KyoteiClient() {
     <section className="py-12 px-4 bg-[#0f0f1a]">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-2xl font-black text-white mb-2">🗺️ 全国24場 1コース勝率データ</h2>
-        <p className="text-gray-400 text-sm mb-6">東日本・西日本で切り替えて確認できます</p>
+        <p className="text-gray-300 text-sm mb-6">東日本・西日本で切り替えて確認できます</p>
         <div className="mb-4 flex gap-3 text-xs flex-wrap">
           <span className="flex items-center gap-1"><span className="text-[#d4af37] font-black">■</span> 60%以上（イン天国）</span>
           <span className="flex items-center gap-1"><span className="text-cyan-400 font-black">■</span> 54〜59%（イン有利）</span>

@@ -47,7 +47,7 @@ function PlayersTable({ data }: { data: typeof g1Players }) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[500px]">
           <thead>
-            <tr className="border-b border-white/10 text-gray-400 text-sm">
+            <tr className="border-b border-white/10 text-gray-300 text-sm">
               <th className="pb-3 text-left pl-4">順位</th>
               <th className="pb-3 text-left">選手名</th>
               <th className="pb-3 text-center">クラス</th>
@@ -72,7 +72,7 @@ function PlayersTable({ data }: { data: typeof g1Players }) {
                 <td className="py-3 text-center text-gray-300 text-sm">{p.city}</td>
                 <td className="py-3 text-center text-[#d4af37] font-bold">{p.winRate}</td>
                 <td className="py-3 text-center text-gray-300 text-sm">{p.special}</td>
-                <td className="py-3 pr-4 text-right text-gray-400 text-xs">{p.note}</td>
+                <td className="py-3 pr-4 text-right text-gray-300 text-xs">{p.note}</td>
               </tr>
             ))}
           </tbody>
@@ -122,7 +122,7 @@ export default function KeirinClient() {
                     <Badge className={`${r.grade === "GP" ? "bg-amber-500/20 text-amber-300 border-amber-500/30" : "bg-red-500/20 text-red-300 border-red-500/30"} text-xs w-12 justify-center`}>{r.grade}</Badge>
                     <div className="flex-1">
                       <span className="text-white font-bold">{r.name}</span>
-                      <span className="text-gray-500 text-sm ml-2">{r.track} / {r.date}</span>
+                      <span className="text-gray-300 text-sm ml-2">{r.track} / {r.date}</span>
                     </div>
                     <span className="text-[#d4af37] font-bold shrink-0">{r.prize}</span>
                   </div>
@@ -137,7 +137,7 @@ export default function KeirinClient() {
                     <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs w-12 justify-center">{r.grade}</Badge>
                     <div className="flex-1">
                       <span className="text-white font-bold">{r.name}</span>
-                      <span className="text-gray-500 text-sm ml-2">{r.track} / {r.date}</span>
+                      <span className="text-gray-300 text-sm ml-2">{r.track} / {r.date}</span>
                     </div>
                     <span className="text-[#d4af37] font-bold shrink-0">{r.prize}</span>
                   </div>

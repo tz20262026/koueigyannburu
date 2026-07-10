@@ -5,7 +5,7 @@ import AffiliateSection from "@/components/AffiliateSection";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import KeirinClient from "./KeirinClient";
-import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { WebPageJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import BetCalculator from "@/components/BetCalculator";
 import StrategyGuide from "@/components/StrategyGuide";
 
@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     description: "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。",
     url: "https://koueigyannburu.vercel.app/keirin",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "競輪予想・データ分析 | WINLAB",
+    description: "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。",
   },
 };
 
@@ -118,6 +123,12 @@ const qa = [
 export default function KeirinPage() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "トップ", url: "https://koueigyannburu.vercel.app" },
+          { name: "競輪", url: "https://koueigyannburu.vercel.app/keirin" },
+        ]}
+      />
       <WebPageJsonLd
         name="競輪予想・データ分析 | WINLAB"
         description="競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。"
@@ -155,7 +166,7 @@ export default function KeirinPage() {
                   <div className="text-3xl mb-2">{k.icon}</div>
                   <div className="text-white font-black text-lg">{k.name}</div>
                   <div className="text-[#d4af37] font-black text-xl mt-1">{k.pct}</div>
-                  <p className="text-gray-500 text-xs mt-2">{k.desc}</p>
+                  <p className="text-gray-300 text-xs mt-2">{k.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -167,7 +178,7 @@ export default function KeirinPage() {
       <section className="py-12 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl font-black text-white mb-2">🗺️ 地域ライン構成</h2>
-          <p className="text-gray-400 text-sm mb-6">競輪は同じ地域の選手が連携して走るライン戦術が重要</p>
+          <p className="text-gray-300 text-sm mb-6">競輪は同じ地域の選手が連携して走るライン戦術が重要</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {lineStrategy.map((l) => (
               <div key={l.region} className="p-4 rounded-xl border border-white/10 bg-[#0f0f1a]">

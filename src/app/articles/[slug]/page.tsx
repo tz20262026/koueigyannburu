@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import AffiliateSection from "@/components/AffiliateSection";
 import { articles, getArticleBySlug } from "@/lib/articles";
-import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd, FaqJsonLd } from "@/components/JsonLd";
 
 export async function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -29,6 +29,11 @@ export async function generateMetadata({
       description: article.description,
       url: `https://koueigyannburu.vercel.app/articles/${article.slug}`,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | WINLAB`,
+      description: article.description,
     },
   };
 }
@@ -84,23 +89,30 @@ export default async function ArticlePage({
 
   return (
     <div className="min-h-screen">
-      <WebPageJsonLd
-        name={`${article.title} | WINLAB`}
+      <ArticleJsonLd
+        title={article.title}
         description={article.description}
         url={`https://koueigyannburu.vercel.app/articles/${article.slug}`}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "トップ", url: "https://koueigyannburu.vercel.app" },
+          { name: article.genreLabel, url: `https://koueigyannburu.vercel.app${article.genreHref}` },
+          { name: article.title, url: `https://koueigyannburu.vercel.app/articles/${article.slug}` },
+        ]}
       />
       <FaqJsonLd items={faqItems} />
 
       {/* パンくず */}
       <div className="px-4 py-3 border-b border-white/10 bg-[#0a0a14]">
-        <div className="max-w-4xl mx-auto flex items-center gap-2 text-sm text-gray-500">
-          <Link href="/" className="hover:text-gray-300 transition-colors">トップ</Link>
+        <div className="max-w-4xl mx-auto flex items-center gap-2 text-sm text-gray-300">
+          <Link href="/" className="hover:text-white transition-colors">トップ</Link>
           <span>›</span>
-          <Link href={article.genreHref} className="hover:text-gray-300 transition-colors">
+          <Link href={article.genreHref} className="hover:text-white transition-colors">
             {article.genreLabel}
           </Link>
           <span>›</span>
-          <span className="text-gray-400 truncate">{article.title}</span>
+          <span className="text-gray-300 truncate">{article.title}</span>
         </div>
       </div>
 
@@ -109,7 +121,7 @@ export default async function ArticlePage({
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <Badge className={`${article.tagBg} ${article.tagText} border-0`}>{article.tag}</Badge>
-            <span className="text-gray-500 text-sm">📖 {article.readTime}で読める</span>
+            <span className="text-gray-300 text-sm">📖 {article.readTime}で読める</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
             {article.title}
@@ -143,6 +155,20 @@ export default async function ArticlePage({
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* 勝負運CTA（収益化導線） */}
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-[#1a1030] to-[#0f0f1a] p-6 text-center">
+            <p className="text-white font-black text-lg mb-2">🔮 データの次は「運」も味方につけよう</p>
+            <p className="text-gray-300 text-sm mb-4">
+              大勝負の前に勝負運・金運をプロの占い師に相談する人が増えています。初回無料で試せるサービスをまとめました。
+            </p>
+            <a
+              href="#recommend"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl gold-gradient text-black font-black text-sm hover:opacity-90 transition-opacity"
+            >
+              初回無料の占いサービスを見る ↓
+            </a>
           </div>
 
           {/* ジャンルに戻るCTA */}
@@ -195,7 +221,7 @@ function RelatedGenreArticles({
                 <h3 className="text-white font-bold text-sm group-hover:text-[#d4af37] transition-colors line-clamp-2">
                   {a.title}
                 </h3>
-                <p className="text-gray-500 text-xs mt-2">📖 {a.readTime}</p>
+                <p className="text-gray-300 text-xs mt-2">📖 {a.readTime}</p>
               </div>
             </Link>
           ))}

@@ -55,7 +55,7 @@ export default function LuckyGame() {
         <div className="text-center mb-6">
           <div className="text-4xl mb-2">🔮</div>
           <h2 className="text-2xl font-black text-white">今日のラッキーナンバー</h2>
-          <p className="text-gray-400 text-sm mt-1">生年月日と今日の日付から今日だけの勝負数字を算出</p>
+          <p className="text-gray-300 text-sm mt-1">生年月日と今日の日付から今日だけの勝負数字を算出</p>
         </div>
 
         <div className="flex gap-3 mb-6">
@@ -79,7 +79,7 @@ export default function LuckyGame() {
         {loading && (
           <div className="text-center py-8">
             <div className="inline-block w-10 h-10 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin mb-3" />
-            <p className="text-gray-400 text-sm">運勢データを解析中…</p>
+            <p className="text-gray-300 text-sm">運勢データを解析中…</p>
           </div>
         )}
 
@@ -100,16 +100,16 @@ export default function LuckyGame() {
                       </span>
                     ))}
                   </div>
-                  <span className="text-gray-600 text-xs ml-auto shrink-0">{g.unit}</span>
+                  <span className="text-gray-300 text-xs ml-auto shrink-0">{g.unit}</span>
                 </div>
               );
             })}
-            <p className="text-center text-gray-600 text-xs pt-2">
+            <p className="text-center text-gray-300 text-xs pt-2">
               ※エンターテインメント目的です。購入判断の参考にしないでください。
             </p>
             <button
               onClick={() => { setResults(null); setBirth(""); setRevealed(false); }}
-              className="w-full py-2 rounded-xl border border-white/20 text-gray-400 text-sm hover:border-white/40 hover:text-white transition-all"
+              className="w-full py-2 rounded-xl border border-white/20 text-gray-300 text-sm hover:border-white/40 hover:text-white transition-all"
             >
               もう一度占う
             </button>

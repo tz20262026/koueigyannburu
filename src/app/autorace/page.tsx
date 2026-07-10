@@ -5,7 +5,7 @@ import AffiliateSection from "@/components/AffiliateSection";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import AutoraceClient from "./AutoraceClient";
-import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { WebPageJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import BetCalculator from "@/components/BetCalculator";
 import StrategyGuide from "@/components/StrategyGuide";
 
@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     description: "オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。",
     url: "https://koueigyannburu.vercel.app/autorace",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "オートレース予想・データ分析 | WINLAB",
+    description: "オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。",
   },
 };
 
@@ -50,7 +55,7 @@ const relatedArticles = [
     time: "6分で読める",
   },
   {
-    href: "/autorace",
+    href: "/articles/autorace-beginner-guide",
     title: "オートレース完全入門：基本ルールと賭け方",
     desc: "オートレースの仕組み・車券の種類・購入方法を初心者向けに解説",
     tag: "初心者",
@@ -117,6 +122,12 @@ const qa = [
 export default function AutoracePage() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "トップ", url: "https://koueigyannburu.vercel.app" },
+          { name: "オートレース", url: "https://koueigyannburu.vercel.app/autorace" },
+        ]}
+      />
       <WebPageJsonLd
         name="オートレース予想・データ分析 | WINLAB"
         description="オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。"
@@ -149,7 +160,7 @@ export default function AutoracePage() {
               <div key={p.title} className="p-4 rounded-xl border border-orange-700/30 bg-gradient-to-br from-orange-900/20 to-[#0f0f1a]">
                 <div className="text-2xl mb-2">{p.icon}</div>
                 <h3 className="text-white font-bold text-sm mb-1">{p.title}</h3>
-                <p className="text-gray-400 text-xs">{p.desc}</p>
+                <p className="text-gray-300 text-xs">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -169,9 +180,9 @@ export default function AutoracePage() {
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-xl font-black text-white">{s.name}</h3>
-                    <Badge className="bg-white/10 text-gray-400 border-0 text-xs">{s.pref}</Badge>
+                    <Badge className="bg-white/10 text-gray-300 border-0 text-xs">{s.pref}</Badge>
                   </div>
-                  <p className="text-gray-400 text-sm mb-2">{s.feature}</p>
+                  <p className="text-gray-300 text-sm mb-2">{s.feature}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-orange-400 text-xs">🌙</span>
                     <span className="text-gray-300 text-xs">{s.nights}</span>

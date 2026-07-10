@@ -60,7 +60,7 @@ export default function TakarakujiClient() {
                 <div key={r.kai} className="p-5 rounded-xl border border-amber-700/30 bg-gradient-to-br from-amber-900/10 to-[#0f0f1a]">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-1 mb-3">
                     <span className="text-white font-bold">第{r.kai}回</span>
-                    <span className="text-gray-500 text-sm sm:ml-2">{r.date}</span>
+                    <span className="text-gray-300 text-sm sm:ml-2">{r.date}</span>
                     <span className="sm:ml-auto text-[#d4af37] font-bold text-sm">1等 {r.prize1}</span>
                   </div>
                   <div className="flex flex-wrap gap-2 items-center">
@@ -69,7 +69,7 @@ export default function TakarakujiClient() {
                         {n}
                       </span>
                     ))}
-                    <span className="text-gray-500 text-xs px-1">ボーナス</span>
+                    <span className="text-gray-300 text-xs px-1">ボーナス</span>
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-amber-400 text-amber-300 font-black text-sm">
                       {r.bonus}
                     </span>
@@ -95,7 +95,7 @@ export default function TakarakujiClient() {
                 <div key={r.kai} className="p-5 rounded-xl border border-purple-700/30 bg-gradient-to-br from-purple-900/10 to-[#0f0f1a]">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-1 mb-3">
                     <span className="text-white font-bold">第{r.kai}回</span>
-                    <span className="text-gray-500 text-sm sm:ml-2">{r.date}</span>
+                    <span className="text-gray-300 text-sm sm:ml-2">{r.date}</span>
                     <span className="sm:ml-auto text-[#d4af37] font-bold text-sm">1等 {r.prize1}</span>
                   </div>
                   <div className="flex flex-wrap gap-2 items-center">
@@ -104,7 +104,7 @@ export default function TakarakujiClient() {
                         {n}
                       </span>
                     ))}
-                    <span className="text-gray-500 text-xs px-1">ボーナス</span>
+                    <span className="text-gray-300 text-xs px-1">ボーナス</span>
                     {r.bonus.map((n) => (
                       <span key={n} className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-purple-400 text-purple-300 font-black text-sm">
                         {n}
@@ -132,7 +132,7 @@ export default function TakarakujiClient() {
                 <div key={r.kai} className="p-5 rounded-xl border border-green-700/30 bg-gradient-to-br from-green-900/10 to-[#0f0f1a]">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-1 mb-3">
                     <span className="text-white font-bold">第{r.kai}回</span>
-                    <span className="text-gray-500 text-sm sm:ml-2">{r.date}</span>
+                    <span className="text-gray-300 text-sm sm:ml-2">{r.date}</span>
                     <span className="sm:ml-auto text-[#d4af37] font-bold text-sm">1等 {r.prize1}</span>
                   </div>
                   <div className="flex flex-wrap gap-2 items-center">
@@ -141,7 +141,7 @@ export default function TakarakujiClient() {
                         {n}
                       </span>
                     ))}
-                    <span className="text-gray-500 text-xs px-1">ボーナス</span>
+                    <span className="text-gray-300 text-xs px-1">ボーナス</span>
                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 border-green-400 text-green-300 font-black text-sm">
                       {r.bonus}
                     </span>

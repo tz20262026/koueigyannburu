@@ -33,7 +33,7 @@ function PlayersTable({ data }: { data: typeof topPlayers }) {
       <div className="overflow-x-auto">
         <table className="w-full min-w-[500px]">
           <thead>
-            <tr className="border-b border-white/10 text-gray-400 text-sm">
+            <tr className="border-b border-white/10 text-gray-300 text-sm">
               <th className="pb-3 text-left pl-4">順位</th>
               <th className="pb-3 text-left">選手名</th>
               <th className="pb-3 text-center">所属</th>
@@ -58,7 +58,7 @@ function PlayersTable({ data }: { data: typeof topPlayers }) {
                 </td>
                 <td className="py-3 text-center text-[#d4af37] font-bold">{p.winRate}</td>
                 <td className="py-3 text-right text-cyan-300 font-mono">{p.tryTime}秒</td>
-                <td className="py-3 pr-4 text-right text-gray-500 text-xs">{p.note}</td>
+                <td className="py-3 pr-4 text-right text-gray-300 text-xs">{p.note}</td>
               </tr>
             ))}
           </tbody>
@@ -106,7 +106,7 @@ export default function AutoraceClient() {
                   </Badge>
                   <div className="flex-1 min-w-0">
                     <div className="text-white font-bold">{g.name}</div>
-                    <div className="text-gray-500 text-xs">{g.track} · {g.month}</div>
+                    <div className="text-gray-300 text-xs">{g.track} · {g.month}</div>
                   </div>
                   <div className="text-[#d4af37] font-bold shrink-0">{g.prize}</div>
                 </div>

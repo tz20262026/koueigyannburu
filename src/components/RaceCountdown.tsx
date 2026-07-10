@@ -55,7 +55,7 @@ export default function RaceCountdown() {
               <span className={`text-xs font-bold ${r.color}`}>{r.genre}</span>
               <div className="text-white text-sm font-medium">{r.name}</div>
             </div>
-            <div className={`font-mono font-black text-lg ${i === next ? "text-[#d4af37]" : "text-gray-500"}`}>
+            <div className={`font-mono font-black text-lg ${i === next ? "text-[#d4af37]" : "text-gray-300"}`}>
               {fmt(times[i])}
             </div>
           </div>

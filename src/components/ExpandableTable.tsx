@@ -30,7 +30,7 @@ export default function ExpandableTable({
       <div className="overflow-x-auto">
         <table className="w-full min-w-[500px]">
           <thead>
-            <tr className="border-b border-white/10 text-gray-400 text-sm">
+            <tr className="border-b border-white/10 text-gray-300 text-sm">
               {columns.map((col) => (
                 <th
                   key={col.key}

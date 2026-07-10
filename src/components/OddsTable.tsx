@@ -48,7 +48,7 @@ export default function OddsTable() {
       <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
         <div>
           <h3 className="text-white font-black text-lg">📊 オッズ表（サンプル）</h3>
-          <p className="text-gray-500 text-xs">東京11R・芝1600m・G1</p>
+          <p className="text-gray-300 text-xs">東京11R・芝1600m・G1</p>
         </div>
         <div className="flex gap-2">
           {(["num", "odds", "popularity"] as const).map((key) => (
@@ -58,7 +58,7 @@ export default function OddsTable() {
               className={`text-xs px-3 py-1 rounded-full border transition-all ${
                 sortKey === key
                   ? "bg-emerald-600 border-emerald-500 text-white"
-                  : "border-white/20 text-gray-400 hover:border-white/40"
+                  : "border-white/20 text-gray-300 hover:border-white/40"
               }`}
             >
               {key === "num" ? "馬番" : key === "odds" ? "オッズ" : "人気"}
@@ -70,7 +70,7 @@ export default function OddsTable() {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-white/10 text-gray-500 text-xs">
+            <tr className="border-b border-white/10 text-gray-300 text-xs">
               <th className="py-2 px-3 text-left w-8"></th>
               <th className="py-2 px-3 text-left">馬</th>
               <th className="py-2 px-3 text-center">騎手</th>
@@ -96,17 +96,17 @@ export default function OddsTable() {
                 </td>
                 <td className="py-3 px-3">
                   <div className="text-white font-bold">{h.name}</div>
-                  <div className="text-gray-500 text-xs">{h.age}歳 / {h.trainer}厩舎</div>
+                  <div className="text-gray-300 text-xs">{h.age}歳 / {h.trainer}厩舎</div>
                 </td>
                 <td className="py-3 px-3 text-center text-gray-300 text-xs whitespace-nowrap">{h.jockey}</td>
                 <td className="py-3 px-3 text-center">
                   <span className="text-gray-200">{h.weight}kg</span>
-                  <span className={`text-xs ml-1 ${h.weightChange > 0 ? "text-red-400" : h.weightChange < 0 ? "text-cyan-400" : "text-gray-500"}`}>
+                  <span className={`text-xs ml-1 ${h.weightChange > 0 ? "text-red-400" : h.weightChange < 0 ? "text-cyan-400" : "text-gray-300"}`}>
                     {h.weightChange > 0 ? `+${h.weightChange}` : h.weightChange === 0 ? "±0" : h.weightChange}
                   </span>
                 </td>
                 <td className="py-3 px-3 text-center">
-                  <span className={`font-black ${h.popularity <= 3 ? "text-[#d4af37]" : "text-gray-400"}`}>
+                  <span className={`font-black ${h.popularity <= 3 ? "text-[#d4af37]" : "text-gray-300"}`}>
                     {h.popularity}番人気
                   </span>
                 </td>
@@ -127,7 +127,7 @@ export default function OddsTable() {
           <p className="text-emerald-300 text-sm font-bold mb-1">
             ✅ 選択中：{selectedHorses.sort((a, b) => a - b).map((n) => `${n}番`).join(" / ")}
           </p>
-          <p className="text-gray-500 text-xs">
+          <p className="text-gray-300 text-xs">
             ※これはサンプルデータです。実際の予想は公式オッズをご確認ください
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function OddsTable() {
 
       {selectedHorses.length === 0 && (
         <div className="px-5 py-3 border-t border-white/5">
-          <p className="text-gray-600 text-xs">👆 行をタップして注目馬をチェック</p>
+          <p className="text-gray-300 text-xs">👆 行をタップして注目馬をチェック</p>
         </div>
       )}
     </div>

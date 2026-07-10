@@ -29,12 +29,12 @@ export default function RelatedArticles({
               <div className="h-full p-5 rounded-xl border border-white/10 bg-[#0f0f1a] hover:border-[#d4af37]/40 hover:bg-[#0f0f22] transition-all group">
                 <div className="flex items-center justify-between mb-3">
                   <Badge className={`${a.tagColor} border-0 text-xs`}>{a.tag}</Badge>
-                  <span className="text-gray-600 text-xs">{a.time}</span>
+                  <span className="text-gray-300 text-xs">{a.time}</span>
                 </div>
                 <h3 className="text-white font-bold text-sm mb-2 group-hover:text-[#d4af37] transition-colors">
                   {a.title}
                 </h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{a.desc}</p>
+                <p className="text-gray-300 text-xs leading-relaxed">{a.desc}</p>
                 <div className="mt-3 flex items-center gap-1 text-[#d4af37] text-xs">
                   <span>続きを読む</span>
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

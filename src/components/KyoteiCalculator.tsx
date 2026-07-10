@@ -44,32 +44,32 @@ export default function KyoteiCalculator() {
         <span className="text-2xl">⛵</span>
         <div>
           <h3 className="text-white font-black text-lg">舟券払戻シミュレーター</h3>
-          <p className="text-gray-500 text-xs">競艇の払戻金を素早く計算</p>
+          <p className="text-gray-300 text-xs">競艇の払戻金を素早く計算</p>
         </div>
       </div>
 
       <div className="space-y-4">
         <div>
-          <label className="text-gray-400 text-xs mb-2 block">舟券種別</label>
+          <label className="text-gray-300 text-xs mb-2 block">舟券種別</label>
           <div className="grid grid-cols-3 gap-2">
             {betTypes.map((b) => (
               <button
                 key={b.key}
                 onClick={() => { setBetType(b.key); setResult(null); }}
                 className={`py-2 px-2 rounded-lg text-xs font-bold transition-all ${
-                  betType === b.key ? "bg-cyan-500 text-white" : "bg-white/5 text-gray-400 hover:bg-white/10"
+                  betType === b.key ? "bg-cyan-500 text-white" : "bg-white/5 text-gray-300 hover:bg-white/10"
                 }`}
               >
                 {b.label}
               </button>
             ))}
           </div>
-          <p className="text-gray-600 text-xs mt-1">組合せ数：{combos[betType]}通り</p>
+          <p className="text-gray-300 text-xs mt-1">組合せ数：{combos[betType]}通り</p>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="text-gray-400 text-xs mb-1 block">購入金額（円）</label>
+            <label className="text-gray-300 text-xs mb-1 block">購入金額（円）</label>
             <input
               type="number"
               value={amount}
@@ -79,7 +79,7 @@ export default function KyoteiCalculator() {
             />
           </div>
           <div>
-            <label className="text-gray-400 text-xs mb-1 block">オッズ</label>
+            <label className="text-gray-300 text-xs mb-1 block">オッズ</label>
             <input
               type="number"
               value={odds}
@@ -102,11 +102,11 @@ export default function KyoteiCalculator() {
         {result && (
           <div className="grid grid-cols-2 gap-3">
             <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-center">
-              <div className="text-gray-400 text-xs mb-1">払戻金</div>
+              <div className="text-gray-300 text-xs mb-1">払戻金</div>
               <div className="text-cyan-400 font-black text-2xl">{result.payout.toLocaleString()}円</div>
             </div>
             <div className={`p-4 rounded-xl border text-center ${result.profit >= 0 ? "bg-emerald-500/10 border-emerald-500/30" : "bg-red-500/10 border-red-500/30"}`}>
-              <div className="text-gray-400 text-xs mb-1">収支</div>
+              <div className="text-gray-300 text-xs mb-1">収支</div>
               <div className={`font-black text-2xl ${result.profit >= 0 ? "text-emerald-400" : "text-red-400"}`}>
                 {result.profit >= 0 ? "+" : ""}{result.profit.toLocaleString()}円
               </div>

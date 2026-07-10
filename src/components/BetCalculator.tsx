@@ -36,13 +36,13 @@ export default function BetCalculator() {
         <span className="text-2xl">🧮</span>
         <div>
           <h3 className="text-white font-black text-lg">馬券払戻金シミュレーター</h3>
-          <p className="text-gray-500 text-xs">オッズと購入金額を入れると払戻金を計算</p>
+          <p className="text-gray-300 text-xs">オッズと購入金額を入れると払戻金を計算</p>
         </div>
       </div>
 
       <div className="space-y-4">
         <div>
-          <label className="text-gray-400 text-xs mb-2 block">馬券種別</label>
+          <label className="text-gray-300 text-xs mb-2 block">馬券種別</label>
           <div className="grid grid-cols-4 gap-2">
             {betTypes.map((b) => (
               <button
@@ -51,19 +51,19 @@ export default function BetCalculator() {
                 className={`py-2 px-1 rounded-lg text-xs font-bold transition-all ${
                   betType === b.key
                     ? "bg-[#d4af37] text-black"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10"
+                    : "bg-white/5 text-gray-300 hover:bg-white/10"
                 }`}
               >
                 {b.label}
               </button>
             ))}
           </div>
-          <p className="text-gray-600 text-xs mt-1">{selected.desc}（還元率 {(selected.refundRate * 100).toFixed(1)}%）</p>
+          <p className="text-gray-300 text-xs mt-1">{selected.desc}（還元率 {(selected.refundRate * 100).toFixed(1)}%）</p>
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="text-gray-400 text-xs mb-1 block">購入金額（円）</label>
+            <label className="text-gray-300 text-xs mb-1 block">購入金額（円）</label>
             <input
               type="number"
               value={amount}
@@ -75,7 +75,7 @@ export default function BetCalculator() {
             />
           </div>
           <div>
-            <label className="text-gray-400 text-xs mb-1 block">オッズ</label>
+            <label className="text-gray-300 text-xs mb-1 block">オッズ</label>
             <input
               type="number"
               value={odds}
@@ -99,11 +99,11 @@ export default function BetCalculator() {
         {result && (
           <div className="grid grid-cols-2 gap-3 pt-2">
             <div className="p-4 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 text-center">
-              <div className="text-gray-400 text-xs mb-1">払戻金</div>
+              <div className="text-gray-300 text-xs mb-1">払戻金</div>
               <div className="text-[#d4af37] font-black text-2xl">{result.payout.toLocaleString()}円</div>
             </div>
             <div className={`p-4 rounded-xl border text-center ${result.profit >= 0 ? "bg-emerald-500/10 border-emerald-500/30" : "bg-red-500/10 border-red-500/30"}`}>
-              <div className="text-gray-400 text-xs mb-1">収支</div>
+              <div className="text-gray-300 text-xs mb-1">収支</div>
               <div className={`font-black text-2xl ${result.profit >= 0 ? "text-emerald-400" : "text-red-400"}`}>
                 {result.profit >= 0 ? "+" : ""}{result.profit.toLocaleString()}円
               </div>

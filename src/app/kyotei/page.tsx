@@ -5,7 +5,7 @@ import AffiliateSection from "@/components/AffiliateSection";
 import RelatedArticles from "@/components/RelatedArticles";
 import GenreQA from "@/components/GenreQA";
 import KyoteiClient from "./KyoteiClient";
-import { WebPageJsonLd, FaqJsonLd } from "@/components/JsonLd";
+import { WebPageJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import KyoteiCalculator from "@/components/KyoteiCalculator";
 import StrategyGuide from "@/components/StrategyGuide";
 
@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     description: "競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。",
     url: "https://koueigyannburu.vercel.app/kyotei",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "競艇（ボートレース）予想・データ分析 | WINLAB",
+    description: "競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。",
   },
 };
 
@@ -75,7 +80,7 @@ const relatedArticles = [
     time: "5分で読める",
   },
   {
-    href: "/kyotei",
+    href: "/articles/kyotei-motor-check",
     title: "モーター成績の見方と選び方のコツ",
     desc: "2連率・3連率・スタートタイムから良モーターを見極める方法",
     tag: "データ分析",
@@ -118,6 +123,12 @@ const qa = [
 export default function KyoteiPage() {
   return (
     <div>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "トップ", url: "https://koueigyannburu.vercel.app" },
+          { name: "競艇", url: "https://koueigyannburu.vercel.app/kyotei" },
+        ]}
+      />
       <WebPageJsonLd
         name="競艇（ボートレース）予想・データ分析 | WINLAB"
         description="競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。"
@@ -150,7 +161,7 @@ export default function KyoteiPage() {
               <div key={t.title} className="p-4 rounded-xl border border-cyan-700/30 bg-gradient-to-br from-cyan-900/20 to-[#0f0f1a]">
                 <div className="text-2xl mb-2">{t.icon}</div>
                 <h3 className="text-white font-bold text-sm mb-1">{t.title}</h3>
-                <p className="text-gray-400 text-xs">{t.desc}</p>
+                <p className="text-gray-300 text-xs">{t.desc}</p>
               </div>
             ))}
           </div>
@@ -169,15 +180,15 @@ export default function KyoteiPage() {
               <Card key={p.name} className="bg-[#0f0f1a] border-white/10 hover:border-cyan-700/40 transition-all">
                 <CardContent className="p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`text-3xl font-black ${p.rank <= 3 ? "text-[#d4af37]" : "text-gray-500"}`}>
+                    <span className={`text-3xl font-black ${p.rank <= 3 ? "text-[#d4af37]" : "text-gray-300"}`}>
                       #{p.rank}
                     </span>
                     <Badge className="bg-cyan-500/20 text-cyan-300 border-0 text-xs">{p.class}</Badge>
                   </div>
                   <div className="text-xl font-black text-white mb-1">{p.name}</div>
-                  <div className="text-gray-400 text-sm mb-3">{p.pref} · 登録{p.no}</div>
+                  <div className="text-gray-300 text-sm mb-3">{p.pref} · 登録{p.no}</div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">勝率</span>
+                    <span className="text-gray-300 text-sm">勝率</span>
                     <span className="text-[#d4af37] font-black text-lg">{p.winRate}</span>
                   </div>
                 </CardContent>
