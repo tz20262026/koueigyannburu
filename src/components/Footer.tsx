@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SisterSites from "./SisterSites";
 
 const links = [
   { href: "/keiba", label: "競馬" },
@@ -47,6 +48,8 @@ export default function Footer() {
             </p>
           </div>
         </div>
+
+        <SisterSites />
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
           <p className="text-gray-300 text-sm">
