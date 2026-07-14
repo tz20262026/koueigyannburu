@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import AffiliateSection from "@/components/AffiliateSection";
+import MoshimoSection from "@/components/MoshimoSection";
 import LuckyGame from "@/components/LuckyGame";
 import { SiteJsonLd } from "@/components/JsonLd";
 import BetCalculator from "@/components/BetCalculator";
@@ -466,6 +467,7 @@ JRA公式で過去10年分のレースデータを無料確認できる。
       {/* アフィリエイト */}
       <div className="bg-[#0f0f1a]">
         <AffiliateSection />
+        <MoshimoSection />
       </div>
 
       {/* 全ジャンル横断ナビ */}

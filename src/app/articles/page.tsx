@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import AffiliateSection from "@/components/AffiliateSection";
+import MoshimoSection from "@/components/MoshimoSection";
 import { articles } from "@/lib/articles";
 import { WebPageJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
@@ -109,6 +110,7 @@ export default function ArticlesPage() {
       {/* アフィリエイト */}
       <div className="bg-[#0f0f1a]">
         <AffiliateSection />
+        <MoshimoSection />
       </div>
     </div>
   );
