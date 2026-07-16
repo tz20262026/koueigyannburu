@@ -64,7 +64,7 @@ const relatedArticles = [
     time: "6分で読める",
   },
   {
-    href: "/keirin",
+    href: "/articles/keirin-kimarite-guide",
     title: "決まり手データから狙い目を探す方法",
     desc: "逃げ・捲り・差しの決まり手別発生率を活用した予想法",
     tag: "データ",

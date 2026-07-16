@@ -155,7 +155,7 @@ const relatedArticles = [
     time: "6分で読める",
   },
   {
-    href: "/takarakuji",
+    href: "/articles/takarakuji-tax-guide",
     title: "宝くじに当選したらすること・税金の扱い",
     desc: "億超え当選時の手続き・税金・資産管理のポイントを解説",
     tag: "当選後",

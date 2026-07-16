@@ -87,7 +87,7 @@ const relatedArticles = [
     time: "5分で読める",
   },
   {
-    href: "/autorace",
+    href: "/articles/autorace-sg-races",
     title: "オートレースSGレース一覧と開催場",
     desc: "日本選手権・スーパーレース・全日本選手権の格付けと賞金一覧",
     tag: "レース情報",
