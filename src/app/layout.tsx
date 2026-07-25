@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://koueigyannburu.vercel.app",
     siteName: "WINLAB",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -53,6 +54,7 @@ export const metadata: Metadata = {
     description:
       "競馬・競輪・競艇・オートレース・宝くじの予想データ分析サイト。勝率UPに役立つ情報を徹底解説。",
     creator: "@Ryokox70",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://koueigyannburu.vercel.app",
