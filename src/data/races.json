@@ -1,11 +1,11 @@
 {
-  "updated": "2026-07-19",
-  "weekLabel": "2026/7/19週",
+  "updated": "2026-07-26",
+  "weekLabel": "2026/7/26週",
   "races": [
     {
       "genre": "競馬",
       "name": "函館・福島競馬 開催中",
-      "time": "今週末(7/25〜)",
+      "time": "今週末(8/1〜)",
       "status": "開催中",
       "statusColor": "bg-emerald-500/20 text-emerald-300",
       "href": "/keiba"
