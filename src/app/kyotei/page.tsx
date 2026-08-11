@@ -20,11 +20,13 @@ export const metadata: Metadata = {
     description: "競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。",
     url: "https://koueigyannburu.vercel.app/kyotei",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "競艇（ボートレース）予想・データ分析 | WINLAB",
     description: "競艇全24場コースデータ・選手成績を分析。1コース勝率・水面条件で的中率UP。",
+    images: ["/og-image.png"],
   },
 };
 

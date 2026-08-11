@@ -20,11 +20,13 @@ export const metadata: Metadata = {
     description: "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。",
     url: "https://koueigyannburu.vercel.app/keirin",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "競輪予想・データ分析 | WINLAB",
     description: "競輪のグレードレース・選手データを徹底分析。ライン戦術・決まり手データで的中率UP。",
+    images: ["/og-image.png"],
   },
 };
 

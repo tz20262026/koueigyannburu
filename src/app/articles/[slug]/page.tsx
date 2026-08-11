@@ -29,11 +29,13 @@ export async function generateMetadata({
       description: article.description,
       url: `https://koueigyannburu.vercel.app/articles/${article.slug}`,
       type: "article",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${article.title} | WINLAB`,
       description: article.description,
+      images: ["/og-image.png"],
     },
   };
 }

@@ -19,11 +19,13 @@ export const metadata: Metadata = {
     description: "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。",
     url: "https://koueigyannburu.vercel.app/takarakuji",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "宝くじ・LOTO当選数字・確率データ | WINLAB",
     description: "ロト6・ロト7・ミニロト・ナンバーズ・スクラッチの当選確率・出現傾向データを徹底分析。",
+    images: ["/og-image.png"],
   },
 };
 

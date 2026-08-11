@@ -17,12 +17,14 @@ export const metadata: Metadata = {
       "公営ギャンブルの攻略記事を全ジャンルまとめて掲載。勝率UPに役立つ実践的な記事一覧。",
     url: "https://koueigyannburu.vercel.app/articles",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "攻略記事一覧 | WINLAB",
     description:
       "公営ギャンブルの攻略記事を全ジャンルまとめて掲載。勝率UPに役立つ実践的な記事一覧。",
+    images: ["/og-image.png"],
   },
 };
 

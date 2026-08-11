@@ -20,11 +20,13 @@ export const metadata: Metadata = {
     description: "オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。",
     url: "https://koueigyannburu.vercel.app/autorace",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "オートレース予想・データ分析 | WINLAB",
     description: "オートレース選手データ・機力分析。穴狙いで高配当を狙う攻略法を徹底解説。",
+    images: ["/og-image.png"],
   },
 };
 

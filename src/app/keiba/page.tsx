@@ -20,11 +20,13 @@ export const metadata: Metadata = {
     description: "JRA・地方競馬のオッズ・出走データを徹底分析。勝率UPの競馬予想情報を無料提供。",
     url: "https://koueigyannburu.vercel.app/keiba",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "競馬予想・データ分析 | WINLAB",
     description: "JRA・地方競馬のオッズ・出走データを徹底分析。勝率UPの競馬予想情報を無料提供。",
+    images: ["/og-image.png"],
   },
 };
 

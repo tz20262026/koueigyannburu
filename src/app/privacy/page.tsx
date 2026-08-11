@@ -13,12 +13,14 @@ export const metadata: Metadata = {
       "WINLABのプライバシーポリシー・免責事項・広告掲載ポリシーについて。",
     url: "https://koueigyannburu.vercel.app/privacy",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "WINLAB" }],
   },
   twitter: {
     card: "summary",
     title: "プライバシーポリシー・免責事項 | WINLAB",
     description:
       "WINLABのプライバシーポリシー・免責事項・広告掲載ポリシーについて。",
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
 };
