@@ -93,6 +93,9 @@
   html {
     @apply font-sans;
   }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
 }
 
 .gold-gradient {
