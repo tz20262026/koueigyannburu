@@ -8,6 +8,7 @@ import { WebPageJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd"
 import BetCalculator from "@/components/BetCalculator";
 import StrategyGuide from "@/components/StrategyGuide";
 import OddsTable from "@/components/OddsTable";
+import AIExpectedValueSimulator from "@/components/AIExpectedValueSimulator";
 
 export const metadata: Metadata = {
   title: "競馬予想・データ分析",
@@ -105,6 +106,10 @@ const qa = [
   {
     q: "地方競馬のナイターレースはいつ開催されますか？",
     a: "大井競馬（TCK）は毎週水・木・金・土曜日の夜間開催が基本。川崎・浦和・船橋も夜間開催あり。南関東四場（大井・川崎・浦和・船橋）は特に充実しています。",
+  },
+  {
+    q: "競馬AIとは何ですか？どうやって回収率を上げるのですか？",
+    a: "競馬AIとは、機械学習を使ってオッズ・騎手・直近成績・馬場状態などの過去データから各馬の勝率を予測する仕組みです。「的中確率×オッズ＝期待値」を計算し、期待値が100%を超える馬券だけを狙うことで長期的な回収率アップを目指します。当サイトのAI期待値シミュレーターでも同じ考え方で判定できます。",
   },
 ];
 
@@ -316,8 +321,16 @@ JRA場外でも購入できるため、週中に楽しめる競馬として人�
         </div>
       </section>
 
-      {/* 馬券計算機 */}
+      {/* AI期待値シミュレーター */}
       <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-black text-white mb-6">🤖 競馬AI｜期待値・回収率シミュレーター</h2>
+          <AIExpectedValueSimulator />
+        </div>
+      </section>
+
+      {/* 馬券計算機 */}
+      <section className="py-12 px-4 bg-[#0f0f1a]">
         <div className="max-w-2xl mx-auto">
           <BetCalculator />
         </div>
